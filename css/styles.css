@@ -10242,6 +10242,7 @@ form .row:first-child .floating-label-form-group {
 /*come back to to format this addition to CSS correctly*/
 .column {
   float: left;
+  width: 33.33%;
   padding: 5px;
 }
 
