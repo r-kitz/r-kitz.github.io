@@ -1,4 +1,24 @@
 <!DOCTYPE html>
+
+<!--
+~~~ Portfolio Modal - Video ~~~
+<iframe width="640" height="360" src="https://www.youtube.com/embed/uYv-dsK2C74" title="ME30 - Merry Go Golf by Rose Kitz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Electromechanical Game Video"></iframe> 
+
+~~~button to link~~~
+class refers to CSS file formatting
+href is link I want button to lead to
+<a class="btn btn-outline-dark btn-social mx-1" href="https://github.com/r-kitz"><i class="fab fa-FONTAWESOMEICONNAME"></i></a>
+
+~~~ image with multiple classes (class="class1 class2 class3 ...") -- can assign multiple classes to one element! :) ~~~
+<img class="masthead-avatar img-white-border mb-5" src="assets/img/Rose_Kitz.jpg" alt="" />
+
+~~~ tab to section on page "#section" ~~~
+<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>
+~~~ tab direct to link (NO section on page) ~~~
+<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="https://tufts.box.com/s/d193pn9emqpbf5omhpre1310lozdue9g">Resume</a></li>
+
+-->
+
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -30,6 +50,7 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="https://tufts.box.com/s/d193pn9emqpbf5omhpre1310lozdue9g">Resume</a></li>
                     </ul>
                 </div>
             </div>
@@ -37,18 +58,18 @@
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="" />
+                <!-- Masthead Image-->
+                <img class="masthead-avatar img-white-border mb-5" src="assets/img/Rose_Kitz.jpg" alt="Portrait image of Rose Kitz" />
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">Rose Kitz</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-icon"><i class="fas fa-palette"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Student - Maker - Graphic Artist</p>
+                <p class="masthead-subheading font-weight-light mb-0">Mechanical Engineer / STEM Educator / Graphic Artist</p>
             </div>
         </header>
         <!-- Portfolio Section-->
@@ -59,7 +80,7 @@
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-icon"><i class="fas fa-route"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Portfolio Grid Items-->
@@ -68,6 +89,7 @@
                     <!-- Portfolio Item 5-->
                     
                     <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+                      <h3 class="text-center">Electromechanical Game: Merry-Go-Golf</h3>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -79,16 +101,18 @@
                     <!-- Portfolio Item 4-->
                     
                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                      <h3 class="text-center">PCBs (H-Bridge, Power Supply)</h3>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/pcbs/p1-power-supply.png" alt="3D-Rendered Power Supply PCB" />
+                            <img class="img-fluid" src="assets/img/portfolio/pcbs/p2-hbridge.png" alt="Image of 3D-Rendered H-Bridge PCB" />
                         </div>
                     </div>
 
                     <!-- Portfolio Item 1-->
                     <div class="col-md-6 col-lg-4 mb-5">
+                      <h3 class="text-center">SPIKE Prime Xylophone Player</h3>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -98,6 +122,7 @@
                     </div>
                     <!-- Portfolio Item 2-->
                     <div class="col-md-6 col-lg-4 mb-5">
+                      <h3 class="text-center">SPIKE Prime Walking Robot</h3>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -107,6 +132,7 @@
                     </div>
                     <!-- Portfolio Item 3-->
                     <div class="col-md-6 col-lg-4 mb-5">
+                      <h3 class="text-center">Station Wagon Graphic Design</h3>
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -137,17 +163,18 @@
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-icon"><i class="fas fa-hammer"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ml-auto"><p class="lead">Hi! I'm Rose. I am a junior at Tufts University majoring in Mechanical Engineering with a minor in Engineering Education.</p></div>
-                    <div class="col-lg-4 mr-auto"><p class="lead">My main interests are making (with whatever materials I find), engineering education, and graphic arts.</p></div>
+                    <div class="col-lg-4 ml-auto"><p class="lead">Hi! I'm Rose. I am a junior at Tufts University majoring in Mechanical Engineering with a minor in Engineering Education. As creative student and year-round varsity athlete on the cross country and track & field teams, I am constantly adapting, balancing, compromising, and communicating with others to engender a sense of community & improvement in every facet of life.</p></div>
+                    <div class="col-lg-4 mr-auto"><p class="lead">I spend my time tinkering with found materials, exploring access to design for creators & users, and figuring out how to effectively & joyfully communicate about engineering concepts. </p></div>
+                    <div class="col-lg-4 mr-auto"><p class="lead">I believe that everyone is an expert -- of their own experience -- and it is therefore imperative, as an engineer myself, to seek out, listen to, and embrace others' perspectives in the design process. Everyone has a seat at the table -- and in every moment back to the drawing board.</p></div>
                 </div>
                 <!-- About Section Button-->
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="https://tufts.box.com/s/d193pn9emqpbf5omhpre1310lozdue9g">
+                    <a class="btn btn-xl btn-outline-dark" href="https://tufts.box.com/s/d193pn9emqpbf5omhpre1310lozdue9g">
                         <i class="fas fa-download mr-2"></i>
                         Download My Resume!
                     </a>
@@ -162,7 +189,7 @@
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-icon"><i class="fas fa-handshake"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <p class="text-center text-secondary mb-0">rose.kitz@tufts.edu</p>
@@ -210,6 +237,7 @@
                 </div>-->
             </div>
         </section>
+      
         <!-- Footer-->
         <footer class="footer text-center">
             <div class="container">
@@ -268,14 +296,15 @@
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-golf-ball"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Video-->
-                                    <iframe width="441" height="362.25" src="https://www.youtube.com/embed/uYv-dsK2C74" alt="Electromechanical Game Video">
+                                    <iframe width="640" height="360" src="https://www.youtube.com/embed/uYv-dsK2C74" title="ME30 - Merry Go Golf by Rose Kitz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Electromechanical Game Video">
                                     </iframe>
                                     <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="" />-->
                                     <!-- Portfolio Modal - Text-->
+                                  <h3>Merry-Go-Golf</h3>
                                     <p class="mb-5">Inspired by a childhood of smacking purple golf balls into mini barns, windmills, and, most often, bushes, I designed & built an electromechanical game that packs the thrill of mini golf into a desktop-size arcade game. I programmed an Adafruit Feather to control the game and take inputs from the dashboard potentiometers and buttons, then changes the behavior of the DC (under platform) and stepper (attached to golf 'club') motors. I designed both the electronic & mechanical components of the project, and laser cut, soldered, and assembled everything together.</p>
                                     <!-- Portfolio Modal - Images-->
                                     <div class="row">
@@ -315,17 +344,23 @@
                                 
                                     <!-- Portfolio Modal - Title-->
                                     
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal4Label">Power Supply PCB</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal4Label">PCBs</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-bolt"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
                                   
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="" alt="[to add: image of soldered physical PCB]" />
                                     <!-- Portfolio Modal - Text-->
+                                    <div>
+                                        <img class="rounded mb-5" src="assets/img/portfolio/pcbs/kicad-layout-hbridge.png" alt="Image of KiCad layout of H-Bridge PCB" style="width:75%">
+                                      </div>
+                                    <h3>H-Bridge</h3>
+                                    <p class="mb-5">I designed this h-bridge PCB on KiCad to control the direction of a motor, including a 12V barrel power jack and a screw terminal to provide flexibility for the power source. I also incorporated two indicator LEDs for motor power. Additionally, I added detailed labels to several components and arranged each footprint neatly to optimize the soldering process. After finishing the KiCad design, I ordered my PCB to be fabricated, then soldered it and incorporated it into my class projects!
+                                    <h3>Power Supply</h3>
                                     <p class="mb-5">This power supply was the first PCB I ever designed! Through this project I learned the steps to go from a circuit sketch all the way to a physical PCB in my hands to incorporate into my future electronics projects. I thoroughly enjoyed soldering components to my own PCB. The pictures demonstrate my progression from sketch --> breadboard prototype --> KiCad schematic --> KiCad rendering --> manufactured & self-soldered PCB. The PCB receives power from a 12V wall-adapter barrel jacks and converts the power to 3.3V and 5V, with pins to supply this power to the rails of a breadboard.</p>
                                      <!-- Portfolio Modal - Images-->
                                     <div class="row">
@@ -367,11 +402,11 @@
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-music"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Video-->
-                                        <iframe width="441" height="362.25" src="https://www.youtube.com/embed/s3rvMKtyd78" alt="The Xylophone Player Video">
+                                        <iframe width="640" height="360" src="https://www.youtube.com/embed/s3rvMKtyd78" title="The Xylophone Player by Rose Kitz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="The Xylophone Player Video">
                                         </iframe>
                                     <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/thexylophone.png" alt="" />-->
                                     <!-- Portfolio Modal - Text -->
@@ -412,11 +447,11 @@
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-cog"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Video-->
-                                    <iframe width="441" height="362.25" src="https://www.youtube.com/embed/r1GOxRHf34Y" alt="Silly Walks Video">
+                                    <iframe width="640" height="360" src="https://www.youtube.com/embed/r1GOxRHf34Y" title="Silly Walks by Rose Kitz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Silly Walks Video">
                                     </iframe>
                                     <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="" />-->
                                     <!-- Portfolio Modal - Text-->
@@ -460,7 +495,7 @@
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-bezier-curve"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
