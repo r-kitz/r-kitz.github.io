@@ -10,6 +10,14 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+/* use !important after an attribute like background-color: red !important -- to override all previous styling rules on an element
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+*/
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -472,6 +480,11 @@ mark,
 }
 .blockquote-footer::before {
   content: "— ";
+}
+
+/*added*/
+.img-white-border {
+  border: 5px solid #fff
 }
 
 .img-fluid {
@@ -6073,7 +6086,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #6b8dffd0 !important;
+  background-color: #8dd2dd !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
