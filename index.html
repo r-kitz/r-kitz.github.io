@@ -86,6 +86,18 @@ href is link I want button to lead to
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
 
+                    <!-- Portfolio Item 6-->
+                    
+                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+                      <h3 class="text-center">Raspberry Pi Driving Robot</h3>
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/driving-robot/drivingrobot-card.png" alt="Graphic of Raspberry Pi Driving Robot" />
+                        </div>
+                    </div>
+
                     <!-- Portfolio Item 5-->
                     
                     <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
@@ -94,7 +106,7 @@ href is link I want button to lead to
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/electromech-game/merrygogolf-card.png" alt="" />
+                            <img class="img-fluid" src="assets/img/portfolio/electromech-game/merrygogolf-card.png" alt="Electromechanical Game: Merry-Go-Golf" />
                         </div>
                     </div>
 
@@ -140,18 +152,6 @@ href is link I want button to lead to
                             <img class="img-fluid" src="assets/img/portfolio/car-design.png" alt="Retro Station Wagon Graphic Design" />
                         </div>
                     </div>
-                  
-                    <!-- Portfolio Item 6-->
-                    <!--
-                    <div class="col-md-6 col-lg-4">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/submarine.png" alt="" />
-                        </div>
-                    </div>
-                  -->
                 </div>
             </div>
         </section>
@@ -279,6 +279,59 @@ href is link I want button to lead to
             <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
         </div>
         <!-- Portfolio Modals-->
+
+        <!-- Portfolio Modal 6-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="portfolioModal5Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                    </button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal6Label">Raspberry Pi Driving Robot</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-golf-ball"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Video-->
+                                    <!--<iframe width="640" height="360" src="https://www.youtube.com/embed/uYv-dsK2C74" title="ME30 - Merry Go Golf by Rose Kitz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Electromechanical Game Video">
+                                    </iframe> -->
+                                    <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="" />-->
+                                    <!-- Portfolio Modal - Text-->
+                                  <h3>Navigates a Maze Blind with Buttons!</h3>
+                                    <p class="mb-5">Working with two groupmates in my Electromechanical Systems & Robotics class, I designed both the physical and electrical components of this driving robot in two stages. In the first stage (picture to come), I designed the chassis of the car in Onshape (and eventually laser cut it) to strategically position the various components of the robot (wheels, motors, Raspberry Pi, wire management) for ideal weight distribution to allow the robot to drive smoothly through a narrow hallway. I also worked with my partners to utilize Flask to establish a consistent wireless connection between the brain of the robot (Raspberry Pi) and our HTML webpage that had basic movement buttons to signal the robot to move or turn in a certain direction.<br>For the second stage of the project, we incorporated four buttons onto our robot so it could 'sense' hitting walls in a hidden maze, redesigned the chassis, added PWM motor control to enhance turning and calibrate the wheels, and modified the buttons on our HTML site for easier real-time remote control of the robot. To start, I worked with my teammates to test our minimum viable prototype of a button press sending feedback from the Raspberry Pi back to our webpage, which we eventually achieved by setting up the Pi as a server with Flask and sending data in response to HTTP requests. Then, from my teammates' preliminary Onshape sketches of a new chassis, I designed the living hinge walls to support multiple platforms and enable a circular robot for smooth turning in place. I iterated through many versions of living hinges, spending hours by the laser cutter, to eventually find a pattern that balanced flexibility with strength for the talls walls I designed to span the entire height of the structure. In between turns on the laser cutter, I worked on implementing and testing the PWM motor control (transitioning from simple off/full speed in stage 1) on a singular DC motor. Then, once we assembled the final robot structure, I tested the accuracy of the PWM driving, modifying the program on the Pi to calibrate the wheels to enable different speeds of straightforward/backward driving and gradual turning.<br>From this project, I learned how to better manage a team project to delegate tasks to work on as both a group and as individuals. Additionally, I improved my physical fabrication skills (experimenting with living hinges, finding 'quick & dirty' ways of building certain parts like a bolt as a caster wheel, designing a physical structure to balance and secure electronic components), particularly in the context of a multidisciplinary project focused more on electromechanical components than simply a physical build. I gained deeper experience connecting robots to the internet, progressing from SPIKE Prime my first year of college to a Raspberry Pi now, and finding clear ways of both controlling the robot and representing real-time feedback on an HTML webpage. In general, I thoroughly enjoyed the process of combining my Python programming skills, interest in physical fabrication, and developing further experience with electronics to work with groupmates on a complex system with a 'simple' purpose.</p>
+                                    <!-- Portfolio Modal - Images-->
+                                    <div class="row">
+                                      <!--<div class="column"> need to figure out how to have diff. tables w/ diff. column widths b/c I declared .column to have width: 50% in the .css file, but for here I need 33%
+                                        <img class="rounded mb-5" src="assets/img/portfolio/silly-walks-pics/silly-walks-leftside.jpg" alt="Image of left side of Silly Walks robot (featuring leg gear chain)" style="width:100%">
+                                      </div>-->
+                                      <div class="column">
+                                        <img class="rounded mb-5" src="assets/img/portfolio/driving-robot/drivingrobot-front.png" alt="Image of front of driving robot" style="width:100%">
+                                      </div>
+                                      <div class="column">
+                                        <img class="rounded mb-5" src="assets/img/portfolio/driving-robot/drivingrobot-bottom.png" alt="Image of bottom of driving robot" style="width:100%">
+                                      </div>
+                                      <div class="column">
+                                        <img class="rounded mb-5" src="assets/img/portfolio/driving-robot/drivingrobot-back.png" alt="Image of back of driving robot" style="width:100%">
+                                      </div>
+                                    </div>
+                                    <button class="btn btn-primary" data-dismiss="modal">
+                                        <i class="fas fa-times fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Portfolio Modal 5-->
         <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="portfolioModal5Label" aria-hidden="true">
