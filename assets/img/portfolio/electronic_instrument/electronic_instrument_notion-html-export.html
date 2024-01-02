@@ -1,0 +1,715 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>The Sledgehammer Kablammer</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}	
+</style></head>
+  
+  <body>
+    <article id="bf625801-e631-48fc-b9ab-623f0783fddd" class="page serif">
+
+  <!-- COMMENT OUT THE STATUS STUFF FROM NOTION
+  <header><div class="page-header-icon undefined"><span class="icon">🎸</span></div><h1 class="page-title">The Sledgehammer Kablammer</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Subject of Interest</th><td><span class="selected-value select-value-color-blue">Electronic Musical Instrument Design</span><span class="selected-value select-value-color-purple">Music Engineering</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Context</th><td><span class="selected-value select-value-color-default">Electronic Musical Instrument Design (Fall 2023)</span></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesStatus"><path d="M8.75488 1.02344C8.75488 0.613281 8.41309 0.264648 8.00293 0.264648C7.59277 0.264648 7.25098 0.613281 7.25098 1.02344V3.11523C7.25098 3.51855 7.59277 3.86719 8.00293 3.86719C8.41309 3.86719 8.75488 3.51855 8.75488 3.11523V1.02344ZM3.91504 5.0293C4.20215 5.31641 4.69434 5.32324 4.97461 5.03613C5.26855 4.74902 5.26855 4.25684 4.98145 3.96973L3.53906 2.52051C3.25195 2.2334 2.7666 2.21973 2.47949 2.50684C2.19238 2.79395 2.18555 3.28613 2.47266 3.57324L3.91504 5.0293ZM10.9629 4.01758C10.6826 4.30469 10.6826 4.79688 10.9697 5.08398C11.2568 5.37109 11.749 5.36426 12.0361 5.07715L13.4854 3.62793C13.7725 3.34082 13.7725 2.84863 13.4785 2.55469C13.1982 2.27441 12.7061 2.27441 12.4189 2.56152L10.9629 4.01758ZM15.0234 8.78906C15.4336 8.78906 15.7822 8.44727 15.7822 8.03711C15.7822 7.62695 15.4336 7.28516 15.0234 7.28516H12.9385C12.5283 7.28516 12.1797 7.62695 12.1797 8.03711C12.1797 8.44727 12.5283 8.78906 12.9385 8.78906H15.0234ZM0.975586 7.28516C0.56543 7.28516 0.223633 7.62695 0.223633 8.03711C0.223633 8.44727 0.56543 8.78906 0.975586 8.78906H3.07422C3.48438 8.78906 3.83301 8.44727 3.83301 8.03711C3.83301 7.62695 3.48438 7.28516 3.07422 7.28516H0.975586ZM12.0361 10.9902C11.749 10.71 11.2568 10.71 10.9629 10.9971C10.6826 11.2842 10.6826 11.7764 10.9697 12.0635L12.4258 13.5127C12.7129 13.7998 13.2051 13.793 13.4922 13.5059C13.7793 13.2256 13.7725 12.7266 13.4854 12.4395L12.0361 10.9902ZM2.52051 12.4395C2.22656 12.7266 2.22656 13.2188 2.50684 13.5059C2.79395 13.793 3.28613 13.7998 3.57324 13.5127L5.02246 12.0703C5.31641 11.7832 5.31641 11.291 5.03613 11.0039C4.74902 10.7168 4.25684 10.71 3.96973 10.9971L2.52051 12.4395ZM8.75488 12.9658C8.75488 12.5557 8.41309 12.207 8.00293 12.207C7.59277 12.207 7.25098 12.5557 7.25098 12.9658V15.0576C7.25098 15.4609 7.59277 15.8096 8.00293 15.8096C8.41309 15.8096 8.75488 15.4609 8.75488 15.0576V12.9658Z"></path></svg></span>Project Status</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Done</span></td></tr></tbody></table></header>
+-->
+  
+  <div class="page-body"><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="df5b002c-e042-444b-85e6-7874c011e7c6"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><mark class="highlight-default">The Sledgehammer Kablammer combines the beautiful fluidity of a cello’s strings and the volume-reactive, easy-to-hit pads of a drum kit into one electronic musical instrument, with enhancements that expand beyond the capabilities of either instrument alone to create new &amp; familiar sounds in new &amp; familiar ways.</mark></div></figure><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="5f588823-ee07-43e3-a58d-bd9806411b4a"><div style="font-size:1.5em"><span class="icon">📈</span></div><div style="width:100%">Creating this instrument from scratch was the greatest interdisciplinary challenge of my career:<h3 id="78fd9619-dd45-481a-8053-2a7d00e3d7d5" class="block-color-blue_background">(mechanical engineer + musician + human factors designer)</h3><h3 id="b5feeb5c-5da7-492e-8da5-0899ac0bc333" class="block-color-blue_background">* (cello + drums)</h3><h3 id="83176d96-ba6e-4f8b-9662-95abf669fafc" class="block-color-blue_background">* (sensors + Arduino + Max MSP + Reason)</h3><h3 id="9be93d7f-9f98-45ce-a448-ee1a672617ad" class="block-color-blue_background">= a functional, virtuosic, LED-reactive electronic musical instrument</h3></div></figure><p id="f24d267c-5eaa-4802-8385-cab80490db95" class="">Check out this video for a live demonstration of the instrument, along with the full report I wrote for the course below.</p>
+    <figure id="74f209e4-0941-4ee5-8d96-0e2a9ef84ff5">
+      <iframe width="698" height="394" src="https://www.youtube.com/embed/jMEl5ikbdtc" title="SledgehammerKablammer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Electronic Musical Instrument: The Sledgehammer Kablammer"></iframe>
+    <!--
+      <div class="source"><a href="https://youtu.be/jMEl5ikbdtc">https://youtu.be/jMEl5ikbdtc</a></div>
+      -->
+    </figure><p id="5531a12e-f5d5-4970-b71f-2ad4888c09f3" class="">
+</p><hr id="078a2985-b8d8-4fe4-8c54-743a57f368c6"/><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="9f477cb6-c03e-4487-98ea-982e93aeca31"><div style="font-size:1.5em"><span class="icon">📘</span></div><div style="width:100%"><strong>Read my full report on the Sledgehammer Kablammer below!</strong></div></figure><p id="69a8c8fb-dc65-499b-a4c5-771c027634bc" class="">Rose Kitz</p><p id="6dbd2b18-b0e0-44f2-8880-9eb17f741c4d" class="">Group: Kyle Tomlinson and Ramona Xi</p><p id="ccee4e64-893f-4273-8606-0f968f9cd66a" class="">EMID ES95, Prof. Lehrman</p><p id="d72479b1-e06d-4ff0-ba4e-faa4c72822f0" class="">12/19/23</p><div id="03b51037-e2f4-48c9-92bc-fcb6243d6af3" class="column-list"><div id="bb44008b-0e79-45c9-906f-40665553fc23" style="width:68.75%" class="column"><figure id="36f72b2b-11d1-442f-9941-6cc125dfbbc5" class="image"><a href="electronic_instrument_pics/emid_edited_final.jpeg"><img style="width:576px" src="electronic_instrument_pics/emid_edited_final.jpeg"/></a><figcaption>The Sledgehammer Kablammer in the tabletop position</figcaption></figure><p id="735e5697-d8b2-41da-b3ff-db9d356e11d5" class="">
+</p></div><div id="df26a755-44b0-46a1-9ae0-41ed95f77385" style="width:31.250000000000007%" class="column"><figure id="1955de2b-e998-4a5b-8411-417566aa5435" class="image"><a href="electronic_instrument_pics/IMG_1530.jpeg"><img style="width:336px" src="electronic_instrument_pics/IMG_1530.jpeg"/></a><figcaption>Rose playing the instrument in upright position</figcaption></figure></div></div><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="07e91193-0c18-465d-8108-95475bd2ff8c"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong><mark class="highlight-default">The Sledgehammer Kablammer combines the beautiful fluidity of a cello’s strings and the volume-reactive, easy-to-hit pads of a drum kit into one electronic musical instrument, with enhancements that expand beyond the capabilities of either instrument alone to create new &amp; familiar sounds in new &amp; familiar ways.</mark></strong></div></figure><h2 id="2b58d632-20c0-4729-a0e0-d9ea763ec62f" class="">Design Goals &amp; Features</h2><p id="982344a3-bc83-44a9-a114-5d978f259193" class="">Kyle’s frustrations with the physical limitations of the acoustic cello and drums he plays and desire to enhance those acoustic sounds with digital effects inspired this multi-faceted instrument. While imitating the cello and drums in physical form and beginning sounds, we aimed create an instrument that <strong><strong><strong><strong><strong><strong><strong><strong><strong>is fun and easy to learn with sonic possibilities beyond acoustic instruments, all in a travel-size form factor while playable by one person alone or a group in a variety of familiar instrument orientations. </strong></strong></strong></strong></strong></strong></strong></strong></strong>The simplicity and familiarity of the interface allow anyone to pickup the instrument quickly, while also the variety of sound and musical parameter options enable experienced string instrument or drum players like Kyle to experiment with new sounds without having to learn how to play a completely new instrument.</p><p id="90ea7e34-9e68-4fd3-8c5f-52a1500002b2" class="">To meet these design goals, we determined the following features:</p><table id="179034bd-0424-4e39-bc65-d7604df22e15" class="simple-table"><tbody><tr id="e87341eb-0d23-429e-8656-8e20b0959a4d"><td id="uCCz" class="" style="width:204px"><strong><strong><strong><strong>Design Goal</strong></strong></strong></strong></td><td id="MZ}q" class="" style="width:478px"><strong><strong><strong><strong><strong><strong><strong>Features</strong></strong></strong></strong></strong></strong></strong></td></tr><tr id="649b8bb4-89f0-47bc-84b9-36611c4508ff"><td id="uCCz" class="" style="width:204px">Familiar like existing instruments</td><td id="MZ}q" class="" style="width:478px">- Adjust pitch on a sliding scale based on finger position (i.e. a cello string)<br/>- Trigger notes and resulting volume with ‘hittable’ pads (i.e. drum kit)<br/></td></tr><tr id="937bbbdb-9cff-4440-972e-6ca162830b0f"><td id="uCCz" class="" style="width:204px">Easy to learn (for anyone) and fun to play</td><td id="MZ}q" class="" style="width:478px">- Visually indicate current instrument and scale selected user feedback<br/>- Variety of (familiar) playing orientations (sideways like guitar, upright like cello, tabletop like drums)<br/></td></tr><tr id="9cd3d017-5173-463f-91df-0c0690d7f622"><td id="uCCz" class="" style="width:204px">Many sonic possibilities (experimental for musicians)</td><td id="MZ}q" class="" style="width:478px">- Adjustable root note for the scale to start on<br/>- Variety of melodic &amp; percussive sounds mapped to simple pads<br/>- Change scale and instrument to be played<br/>- Edit output sound to be more experimental than acoustic with musical parameters, like filter frequency and delay<br/></td></tr><tr id="f9c9e15e-96f8-45f0-bd4b-1243dddb0359"><td id="uCCz" class="" style="width:204px">Travel-size and Single or multi-player</td><td id="MZ}q" class="" style="width:478px">- Ukulele-sized, with all sensors accessible by two hands (or even one)<br/>- Multiple interaction points on different parts of the instrument (neck for pitch, body top for trigger and velocity, body side for musical parameters and sound selection)<br/></td></tr></tbody></table><p id="501465ec-59e8-4348-8c3e-646c42e54d11" class="">
+</p><p id="2f213cac-24ce-4aa9-8f42-e02f62dd10cf" class="">
+</p><p id="6d70e0c9-7108-44b5-bcd4-68eb80636522" class="">
+</p><p id="669fd375-bb49-49dc-ab37-2e7991fd8e17" class="">
+</p><p id="23765443-455b-4fd6-bbf7-4e63d79139d0" class="">
+</p><h2 id="925145f9-9d33-4f79-a9a7-5cdbf6ef6fdb" class="">Parts for User Interaction</h2><div id="23de80c0-489f-4d1f-ada4-7be2d5dd03a6" class="column-list"><div id="9abe0a6c-93b6-4508-a26a-435ba2d1bf43" style="width:56.25%" class="column"><p id="ceb8601d-2b6c-444b-923d-2289062da279" class="">The user interface includes the parts in the image to the right. We chose to combine a wooden body with a white, LED illuminated top, and black &amp; illuminated sensors to communicate our goal of adapting existing acoustic instruments (cello, drums) for expanded &amp; experimental electronic playing.</p><p id="15e07a3a-e84b-4552-b7e1-6c0f25d75fca" class="">See the <strong><strong><strong><strong><strong><strong><strong><strong>Circuitry/Arduino</strong></strong></strong></strong></strong></strong></strong></strong> section for wiring parts &amp; details.</p><p id="9201c4a0-67a0-4d97-b2bc-0ee046235c78" class="">
+</p></div><div id="4a81fa97-c6ec-4864-9707-433878631d8c" style="width:43.75000000000001%" class="column"><figure id="a43810c2-f80d-4abb-abc1-38825151ac0d" class="image"><a href="electronic_instrument_pics/Untitled.png"><img style="width:669px" src="electronic_instrument_pics/Untitled.png"/></a></figure></div></div><p id="42e5158a-9496-4532-801f-8fadbeb1b7a4" class="">
+</p><h2 id="aaae4622-323b-441c-89e7-f410735436a3" class="">User Interaction Design</h2><div id="b5a7e09e-7a57-43f8-bdf4-0192c52de04d" class="column-list"><div id="a933aa5c-ece1-41fa-a0c6-c33661ea0749" style="width:62.5%" class="column"><p id="a77b7e86-aa2f-445b-ac00-952ec80ec21c" class="">The physical form of the Sledgehammer Kablammer imitates string instruments like the cello to achieve a familiar playing interface for users, while sized like a ukulele for easy handling by one person alone (see basic dimensions below). To further enable a variety of playing orientations and multiple players, the instrument has a flat bottom and sides along with a sturdy wooden neck so it can sit on a tabletop or be held upright or sideways, with curved edges for aesthetic and safety.</p><p id="21cfe035-c59f-402f-92cf-f90751a55802" class="">To add user feedback in a quickly digestible form, the LED strip illuminates the neck and the LCD backlight change to the color associated with the selected instrument sound, as shown to the right.</p></div><div id="bbc53ec3-ae1f-4dc8-b888-eb3c2c6a369b" style="width:37.50000000000001%" class="column"><figure id="81bcec29-d71e-4d72-8bc1-e971ea848556" class="image"><a href="electronic_instrument_pics/kyle_dark_w_lcd.png"><img style="width:1011px" src="electronic_instrument_pics/kyle_dark_w_lcd.png"/></a><figcaption>Kyle playing in the dark, where LED illumination is highlighted</figcaption></figure></div></div><p id="32c3e9c0-0be5-44af-becc-840721e52e1b" class="">The LEDs on the neck also ‘follow’ finger position to indicate the pitch selected at any time. For further user feedback, the LCD shows text with the selected instrument sound and scale, updating immediately with the color as the player switches sound &amp; scale.</p><p id="a999224f-3c7e-4741-a4ef-2934a284403f" class="">We admittedly designed the body to our own biases as right-handed players, with pitch change by the left hand and the note-triggering pads to be played by the four right-most right-hand fingers, and the sound-parameter sensors closely &amp; perpendicularly located to be played simultaneously by the right thumb. All sensors were selected to be triggered by a light enough touch so that the instrument takes minimal physical effort to play.</p><h2 id="e5b51036-c84d-42e3-9db2-9205d07b4c88" class="">Construction</h2><div id="cf191e7e-51b8-408f-8b67-77923dc2854f" class="column-list"><div id="2796f73c-c84f-4e76-9725-18918dd63e5e" style="width:43.75%" class="column"><p id="25a923c2-46dd-4a91-8c02-018e63701dfa" class="">We fabricated nearly all pieces via laser cutting, as drawn to the right, to achieve the desired flat surfaces and curves (with living hinges), and because laser cutting is a rapid prototyping technique that allows for quick iterations for testing design choices/changes. The tabs on each laser cut piece allow for secure &amp; sturdy assembly. </p></div><div id="67676331-9b43-4623-9029-a7144b228e8d" style="width:56.25%" class="column"><figure id="63f899e4-8c8e-4d0d-ae28-22fec8905e66" class="image"><a href="electronic_instrument_pics/Untitled%201.png"><img style="width:288px" src="electronic_instrument_pics/Untitled%201.png"/></a><figcaption>Manufacturing techniques and materials for fabricated parts with basic dimensions</figcaption></figure></div></div><p id="529764dd-863c-42f6-afd3-f5c44cc84e0a" class="">The only non-exposed fabricated part is the clear sub-top panel, which functions for the FSRs to sit on top of, so that they have a ‘backboard’ to be hit on while being recessed below the top panel — originally, we wanted to include rubber squares on top of the FSRs for a softer playing experience, however the material interfered with FSR performance (and did not look as great as expected), so we decided to keep it simple and eliminate the rubber FSR covers.</p><p id="e2c968a4-3303-44d6-b677-cd00dbe8d0f2" class="">However, to achieve a sturdy and smooth neck as well as a pocket for the LED strips to sit within the instrument while diffusing through the top acrylic sheet, we chose to woodwork a 2x4 pine wood bar.</p><p id="b4aafb39-35d4-4896-99a3-b0b5005fbfa6" class="">Nearly all electronics are packaged up inside the instrument body, as pictured in the <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Circuitry/Arduino</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> section, with the exception of:</p><ul id="09db3511-3263-4e5e-8cb4-c43311e1a023" class="bulleted-list"><li style="list-style-type:disc">Sensor interfaces on the instrument surfaces ➡️ secured tightly to body</li></ul><ul id="951b0e5c-3f7a-4d8e-99ee-a22e138e30f1" class="bulleted-list"><li style="list-style-type:disc">A portion of the LED strip sunk in a pocket of the wooden neck ➡️ covered by white acrylic that is ~30% transparent, the LEDs diffuse to create a glowing effect</li></ul><ul id="2ee04b3e-f662-4366-a51d-c26beac99427" class="bulleted-list"><li style="list-style-type:disc">Two power/data cords sticking out of the neck base ➡️ Arduino power from/data to computer, external power for LED strip (avoid overloading Arduino with high-power lights)</li></ul><h2 id="ecaa0f90-93a9-408a-8127-b8433301b9f9" class="">Circuitry</h2><p id="d67444f2-993d-4cb1-a874-d1bdd4428519" class="">The ‘brain’ of the instrument is an Arduino Mega 2560 Rev3, which has 52 digital pins (15 allowing PWM) and 16 digital pins (along with other ports we did not use) to allow for tremendous flexibility for adding sensors and other electronic components. </p><p id="ac029760-96d8-40b1-9041-0dbbd87686a2" class=""><strong>The main electronic components and their functions are listed below:</strong></p><table id="50444e91-72ae-468a-a137-f602cae2578a" class="simple-table"><tbody><tr id="c8d74860-2f79-4d54-994b-58cb144e03e5"><td id="=tJZ" class="" style="width:282px"><strong><strong><strong><strong>Part</strong></strong></strong></strong></td><td id="}qx=" class="" style="width:420px"><strong><strong><strong><strong><strong><strong><strong><strong>Function</strong></strong></strong></strong></strong></strong></strong></strong></td></tr><tr id="f2513279-f398-4fee-a3d3-b4f2df80a8af"><td id="=tJZ" class="" style="width:282px">Long (300mm) linear soft pot</td><td id="}qx=" class="" style="width:420px">Change pitch by sliding finger (no touch = root note)</td></tr><tr id="10795af0-aeef-4681-96b4-867fb091ee04"><td id="=tJZ" class="" style="width:282px">4x force-sensitive resistors (FSRs)</td><td id="}qx=" class="" style="width:420px">Trigger different melodic/percussive sounds of a chosen instrument with velocity based on force (parameter varies for some instruments)</td></tr><tr id="f7b0b825-ac29-4319-bfff-c8d9ebcad4fe"><td id="=tJZ" class="" style="width:282px">2x 8-way switch (only 4 ways used on each)</td><td id="}qx=" class="" style="width:420px">- Select instrument sound (cello, guitar, ambient, or drums)<br/>- Select scale (major, minor, chromatic, or blues)<br/></td></tr><tr id="ac469314-d510-4da2-8ff2-9b1d4fb9fc41"><td id="=tJZ" class="" style="width:282px">2x illuminated pushbutton</td><td id="}qx=" class="" style="width:420px">Change root note of pitch scale up or down by 1 semitone</td></tr><tr id="5674139a-eed5-453e-8237-27b166a0c989"><td id="=tJZ" class="" style="width:282px">2x short linear soft pot</td><td id="}qx=" class="" style="width:420px">Change musical parameters of overall sound (i.e. delay, filter frequency, distortion for drums) by sliding finger (value is saved once finger removed)</td></tr><tr id="43bf2dce-168e-436a-b0b2-a951e1c806f9"><td id="=tJZ" class="" style="width:282px">Liquid crystal display (LCD) screen</td><td id="}qx=" class="" style="width:420px">Display selected instrument and scale, with colored backlight based on instrument</td></tr><tr id="202d4ee5-f51a-4e77-b5f5-4cb028558fb6"><td id="=tJZ" class="" style="width:282px">Addressable LED strip (30 LEDs)</td><td id="}qx=" class="" style="width:420px">Display color of selected instrument and illuminate finger location for pitch on neck</td></tr></tbody></table><figure id="65477bb4-84b8-42b0-a7cd-d63883dc9c83" class="image"><a href="electronic_instrument_pics/IMG_2211.jpeg"><img style="width:624px" src="electronic_instrument_pics/IMG_2211.jpeg"/></a></figure><p id="479d841d-802e-4e6b-afdf-3a9bd5b1adba" class="">To wire each main component to the Arduino and enable proper electrical standards, additional parts are necessary, with connections made either on the breadboard, with alligator clips, or via soldering.</p><figure id="32aff916-159a-48d0-b423-a827203e863b" class="image"><a href="electronic_instrument_pics/Untitled%202.png"><img style="width:480px" src="electronic_instrument_pics/Untitled%202.png"/></a></figure><p id="465759f0-4544-4e10-9e99-23540b78dc2e" class="">All wiring housed inside of instrument body (image to right) is based on tutorials link in the materials spreadsheet as well as prior knowledge. A specific (clearer) electrical connections diagram is in progress.</p><h2 id="0180c979-1429-46d9-b713-3062f1d646de" class="">Arduino Code</h2><p id="9818a440-2020-4f32-b967-31c0b9686a8a" class="">The Arduino functions as the ‘brain’ of the instrument to read and process raw data then send the values over Serial in packs to Max on the USB-connected Mac computer. The code is modular &amp; extendable to allow for easy &amp; quick implementation and testing of new sensors connected to the Arduino. The ‘EDIT THIS’ section at the top has simple arrays of instrument names &amp; light colors, scale names, and electronic component information &amp; names that designers can quickly change, then simply run the code to send to Max over Serial, without having to dive into or understand the nitty-gritty of the code below. The loop-based code takes care of reading, processing, and sending the data for you!</p><div id="1ec947be-9873-4382-b2c2-89d05bd0991b" class="column-list"><div id="fa84cefb-e4d7-49a9-918b-5d8780f5a6fe" style="width:50%" class="column"><p id="0dce4b06-9859-4ad0-a2ad-4f8a7900aaf7" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Instrument &amp; color, scale editing</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="9d326901-9df7-45c4-9b96-539b524e84b3" class="image"><a href="electronic_instrument_pics/Untitled%203.png"><img style="width:240px" src="electronic_instrument_pics/Untitled%203.png"/></a></figure></div><div id="45ec9319-60df-4701-b689-0b1f5ed8dca9" style="width:50%" class="column"><p id="871dcbc5-01eb-437f-ad05-441fa7443244" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Sensor Changes/Additions</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><figure id="296bd114-7258-4502-9362-4dc828e8beeb" class="image"><a href="electronic_instrument_pics/Untitled%204.png"><img style="width:809px" src="electronic_instrument_pics/Untitled%204.png"/></a></figure></div></div><h3 id="5b01ba24-34b5-4298-82f8-e5892db130bd" class="">Overall Pseudocode</h3><p id="74558782-17ac-4dbc-a669-73c424f91d7d" class="">Below is a pseudocode (high-level, plain English) description of the Arduino (C++) code:</p><div id="94f36251-bd45-4ffc-a17a-a1a43d2b70bb" class="column-list"><div id="45c40b84-e172-4907-a13c-beaf03dd8c7a" style="width:50%" class="column"><figure id="e4b98c36-63e2-44b9-a416-f9c5bfffcd18" class="image"><a href="electronic_instrument_pics/start_pseudocode_emid.png"><img style="width:288px" src="electronic_instrument_pics/start_pseudocode_emid.png"/></a></figure></div><div id="d2aa4a37-b8f5-431b-bbbf-f985be52f33d" style="width:50%" class="column"><figure id="43ad9af9-802e-49fe-88e4-b64b7105a27d" class="image"><a href="electronic_instrument_pics/end_pseudocode_emid.png"><img style="width:384px" src="electronic_instrument_pics/end_pseudocode_emid.png"/></a></figure></div></div><h2 id="33d31a49-4151-44e0-babd-11c62b283346" class="">Max Patch</h2><p id="09f595d0-3561-49a9-a384-a3df5f374eda" class="">The Max patch translates processed input data from the sensors &amp; Arduino into MIDI notes and parameters, based on the desired logic of the instrument. The main steps are as follows, which run concurrently but are listed in order for simplicity:</p><figure id="b792b9c3-df2d-4100-974a-39abe0b48724" class="image"><a href="electronic_instrument_pics/Untitled%205.png"><img style="width:1439px" src="electronic_instrument_pics/Untitled%205.png"/></a></figure><p id="ae8b5e34-1d9e-4fd9-895d-54b61019e3d4" class="">See the <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Appendix</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> for the full Max patch (including Scale and Root Note Switch sub-functions).</p><p id="71273ec3-692b-40b7-ab8d-a3e51d1f66e5" class="">
+</p><p id="e87841a7-0583-47f9-9e1f-a9cf69f826e8" class="">
+</p><p id="7c669d66-48bf-4ec6-bfeb-83b981f76f43" class="">
+</p><p id="5d1bd26d-0b60-4c80-b43f-43a6af0dd2b5" class="">
+</p><h2 id="c696e63e-3280-4860-8467-dcb90c53a562" class="">Reason Rack</h2><p id="0f40918c-09a6-44fe-ac78-4840bda13dd1" class="">There are 16 modules in the Reason rack, with 15 MIDI channels all on bus A to design the sound for the<mark class="highlight-default"> </mark><mark class="highlight-default"><strong>musical parameters</strong></mark> and four instrument options: <mark class="highlight-red_background"><strong>cello</strong></mark><strong><strong><strong><strong><strong>, </strong></strong></strong></strong></strong><mark class="highlight-yellow_background"><strong>guitar</strong></mark><strong><strong><strong><strong><strong>, </strong></strong></strong></strong></strong><mark class="highlight-purple_background"><strong>ambient</strong></mark><strong><strong><strong><strong><strong>, </strong></strong></strong></strong></strong>and <mark class="highlight-teal_background"><strong>drums</strong></mark><mark class="highlight-default"> (highlight colors align with LED colors that show when each instrument is selected).</mark></p><table id="64b224ae-2735-44e5-8c06-1a39c1d9d152" class="simple-table"><thead class="simple-table-header"><tr id="25338ab3-d6e5-4329-b11b-30645a36571a"><th id="~cHm" class="simple-table-header-color simple-table-header" style="width:75.5px"></th><th id="X:IO" class="simple-table-header-color simple-table-header" style="width:259.5px"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Module Name</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></th><th id="kGw&gt;" class="simple-table-header-color simple-table-header" style="width:264.5px"><strong><strong><strong><strong><strong>Sound</strong></strong></strong></strong></strong></th><th id="B|W`" class="simple-table-header-color simple-table-header" style="width:114.5px"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>MIDI Channel</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></th></tr></thead><tbody><tr id="141018ed-4862-497a-86af-8768106111bf"><td id="~cHm" class="" style="width:75.5px">Mixer</td><td id="X:IO" class="" style="width:259.5px">reMIX Virtual Tec MX</td><td id="kGw&gt;" class="" style="width:264.5px">Channels for 4 instruments on aux, return linked to Scream and Delay effects</td><td id="B|W`" class="" style="width:114.5px">N/A</td></tr><tr id="8f047e2e-3ccf-41c3-a31c-32f90fa21c2e"><td id="~cHm" class="" style="width:75.5px">Effect</td><td id="X:IO" class="" style="width:259.5px">Scream4 Sound Destruction Unit</td><td id="kGw&gt;" class="" style="width:264.5px">EasyFuzz</td><td id="B|W`" class="" style="width:114.5px">15</td></tr><tr id="8f972b51-751f-481d-9600-6f7b9486ae17"><td id="~cHm" class="block-color-teal_background" style="width:75.5px">Drums</td><td id="X:IO" class="block-color-teal_background" style="width:259.5px">Kong Drum Designer</td><td id="kGw&gt;" class="block-color-teal_background" style="width:264.5px">A-A-12 -BSQ, synth snare</td><td id="B|W`" class="block-color-teal_background" style="width:114.5px">5</td></tr><tr id="a6dfc46c-3551-4855-84f4-e627426fec80"><td id="~cHm" class="block-color-red_background" style="width:75.5px">Cello</td><td id="X:IO" class="block-color-red_background" style="width:259.5px">NN-19 Digital Sampler</td><td id="kGw&gt;" class="block-color-red_background" style="width:264.5px">Bowed Long</td><td id="B|W`" class="block-color-red_background" style="width:114.5px">1</td></tr><tr id="f4e8d909-25a7-45af-8f82-5c166802bf36"><td id="~cHm" class="block-color-red_background" style="width:75.5px"></td><td id="X:IO" class="block-color-red_background" style="width:259.5px">NN-19 Digital Sampler</td><td id="kGw&gt;" class="block-color-red_background" style="width:264.5px">Bowed Short</td><td id="B|W`" class="block-color-red_background" style="width:114.5px">2</td></tr><tr id="50943ff8-6a5d-40f6-b8fb-a684c645840f"><td id="~cHm" class="block-color-red_background" style="width:75.5px"></td><td id="X:IO" class="block-color-red_background" style="width:259.5px">NN-19 Digital Sampler</td><td id="kGw&gt;" class="block-color-red_background" style="width:264.5px">Pizzicato Soft</td><td id="B|W`" class="block-color-red_background" style="width:114.5px">3</td></tr><tr id="4d072ad8-898e-4419-93e2-9bd3f2023f85"><td id="~cHm" class="block-color-red_background" style="width:75.5px"></td><td id="X:IO" class="block-color-red_background" style="width:259.5px">NN-19 Digital Sampler</td><td id="kGw&gt;" class="block-color-red_background" style="width:264.5px">Pizzicato Hard</td><td id="B|W`" class="block-color-red_background" style="width:114.5px">4</td></tr><tr id="80e56ff1-f6cf-420b-bdf4-f2d915a77e05"><td id="~cHm" class="" style="width:75.5px">Effect</td><td id="X:IO" class="" style="width:259.5px">DDL-1 Digital Delay Line</td><td id="kGw&gt;" class="" style="width:264.5px">N/A (set steps based on input)</td><td id="B|W`" class="" style="width:114.5px">14</td></tr><tr id="60320f18-b16a-4ef4-8aa8-c79f5cac983b"><td id="~cHm" class="block-color-yellow_background" style="width:75.5px">Guitar</td><td id="X:IO" class="block-color-yellow_background" style="width:259.5px">NN-19 Digital Sampler</td><td id="kGw&gt;" class="block-color-yellow_background" style="width:264.5px">PickBass</td><td id="B|W`" class="block-color-yellow_background" style="width:114.5px">6</td></tr><tr id="ef19cbdc-b32c-4be8-9eb8-2fa1c2ee92ca"><td id="~cHm" class="block-color-yellow_background" style="width:75.5px"></td><td id="X:IO" class="block-color-yellow_background" style="width:259.5px">NN-19 Digital Sampler</td><td id="kGw&gt;" class="block-color-yellow_background" style="width:264.5px">GTRODRIVE</td><td id="B|W`" class="block-color-yellow_background" style="width:114.5px">7</td></tr><tr id="e329cf86-6785-45b4-a5c3-99e575dc492d"><td id="~cHm" class="block-color-yellow_background" style="width:75.5px"></td><td id="X:IO" class="block-color-yellow_background" style="width:259.5px">NN-19 Digital Sampler</td><td id="kGw&gt;" class="block-color-yellow_background" style="width:264.5px">Gtr00rvMute</td><td id="B|W`" class="block-color-yellow_background" style="width:114.5px">8</td></tr><tr id="7cbc006f-4ccc-4ab7-9266-5dc11b58702a"><td id="~cHm" class="block-color-yellow_background" style="width:75.5px"></td><td id="X:IO" class="block-color-yellow_background" style="width:259.5px">NN-19 Digital Sampler</td><td id="kGw&gt;" class="block-color-yellow_background" style="width:264.5px">HeavyGtr</td><td id="B|W`" class="block-color-yellow_background" style="width:114.5px">9</td></tr><tr id="3beb5c17-3cdd-478a-a916-a577cf3a9b2c"><td id="~cHm" class="block-color-purple_background" style="width:75.5px">Ambient</td><td id="X:IO" class="block-color-purple_background" style="width:259.5px">Malström Graintable Synthesizer</td><td id="kGw&gt;" class="block-color-purple_background" style="width:264.5px">Vesper</td><td id="B|W`" class="block-color-purple_background" style="width:114.5px">10</td></tr><tr id="06c2c75a-89a2-4b92-8735-751693c59162"><td id="~cHm" class="block-color-purple_background" style="width:75.5px"></td><td id="X:IO" class="block-color-purple_background" style="width:259.5px">Subtractor Polyphonic Synthesizer</td><td id="kGw&gt;" class="block-color-purple_background" style="width:264.5px">Dark</td><td id="B|W`" class="block-color-purple_background" style="width:114.5px">11</td></tr><tr id="0cdbdb20-07fb-4f6a-85dd-98e78e20882c"><td id="~cHm" class="block-color-purple_background" style="width:75.5px"></td><td id="X:IO" class="block-color-purple_background" style="width:259.5px">Subtractor Polyphonic Synthesizer</td><td id="kGw&gt;" class="block-color-purple_background" style="width:264.5px">JRPGVIII</td><td id="B|W`" class="block-color-purple_background" style="width:114.5px">12</td></tr><tr id="df49c673-6319-4794-b1da-bb365d7759e7"><td id="~cHm" class="block-color-purple_background" style="width:75.5px"></td><td id="X:IO" class="block-color-purple_background" style="width:259.5px">thor Polyphonic Synthesizer</td><td id="kGw&gt;" class="block-color-purple_background" style="width:264.5px">Percutron [Run]</td><td id="B|W`" class="block-color-purple_background" style="width:114.5px">13</td></tr></tbody></table><p id="63f0405d-7f0e-4cfd-bd9c-2e6a2c6f395e" class="">The cello sounds were custom-sampled, clipped &amp; processed in Audacity, and added to Reason by Kyle. The majority of parameters on each Reason patch were left at default, with more adjustments made on the ambient sounds. See the <strong><strong><strong><strong><strong><strong><strong><strong><strong>Appendix</strong></strong></strong></strong></strong></strong></strong></strong></strong> for screenshots of the full Reason rack.</p><h2 id="3101c1c6-8605-46a9-ae1a-001520d6ea11" class="">Changes and Future Directions</h2><p id="6c125ea1-ff59-40e3-9e12-f244eb69e5c5" class="">The Sledgehammer Kablammer is, by itself, a complete, playable, and fun instrument; no additional changes are necessary, however several improvements could be made:</p><div id="283f4183-b05e-49be-b574-adbd8e1f881e" class="column-list"><div id="46f0271c-dab1-403d-968d-578586758623" style="width:50%" class="column"><h3 id="f8974bf2-19be-4519-82f9-8eaaba172d24" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Fabrication:</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></h3><ul id="1ccd9c87-7648-42ba-9e69-fed44e583f0c" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong><strong><strong><strong><strong><strong>Change: </strong></strong></strong></strong></strong></strong></strong></strong>Magnetized, latched, or sliding top plate for easy &amp; secure removal/attachment to adjust wiring inside (currently hot glued on)</li></ul><ul id="1bfe06fe-b095-47a4-8db5-075b288b11c7" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong><strong><strong><strong><strong>Change:</strong></strong></strong></strong></strong></strong></strong> Smoother wooden neck with precision machined pocket for LEDs and channel for power/data cords, and bolted attachment to body</li></ul><ul id="b6b1e19a-9689-4bde-8a97-d3dfbc12deaa" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong><strong><strong><strong><strong><strong><strong>Addition:</strong></strong></strong></strong></strong></strong></strong></strong></strong> Guitar strap for easier guitar-style playing vs. holding</li></ul><ul id="09235b57-50ce-4f5b-abff-1cad14e9ebcc" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Addition: </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>hooks/track for LED strip to stabilize in optimal illumination position</li></ul><ul id="842975f4-5df2-4e5b-978f-259006f8396f" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong><strong><strong><strong><strong><strong><strong>Addition: </strong></strong></strong></strong></strong></strong></strong></strong></strong>black pads to cover FSRs cleanly with testing of physical position to not interfere with detected force signal</li></ul><h3 id="81da80f6-a4a9-42d5-b307-3ba4fe5d910c" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong>Max Patch</strong></strong></strong></strong></strong></strong></strong></strong></strong></h3><ul id="9cfd47ee-5bec-4334-849c-bedc954d294f" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong><strong><strong><strong><strong>Change:</strong></strong></strong></strong></strong></strong></strong> Refine parameters mapped to each sensor based on testing for actual effect on played sounds (especially ambient and drums, which have less distinct pitches)</li></ul><ul id="66bacbea-2137-40d4-9d44-45c4f0842844" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong>Addition:</strong></strong></strong> Make ‘presentation mode’ for cleaner and more visual cues while playing</li></ul><ul id="4d58a4b0-7c17-44f9-a0c2-8cceed3c31dd" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong><strong><strong><strong><strong><strong><strong>Change: </strong></strong></strong></strong></strong></strong></strong></strong></strong>Reorganize location(s) of data processing between Max and Arduino</li></ul></div><div id="1b18fc12-6746-446b-b930-f3122f64eeb0" style="width:50%" class="column"><h3 id="47bc3c5d-6881-4dae-97a6-1b3d8f5a026c" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong>Circuitry/Arduino</strong></strong></strong></strong></strong></strong></strong></strong></strong></h3><ul id="0b995c55-1d8f-4733-98db-db907581c103" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong><strong><strong><strong><strong><strong>Change:</strong></strong></strong></strong></strong></strong></strong></strong> Replace solderless breadboard with more secure soldered protoboard, and eventually a custom PCB designed in KiCad (would also improve wire management)</li></ul><ul id="8066d3a6-402a-4055-8f89-d1231c3b4951" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong><strong><strong><strong>Change: </strong></strong></strong></strong></strong></strong>Refactor the code into functions/libraries/etc. for greater readability &amp; ease of editing</li></ul><ul id="4605e6e8-dc2d-4bc2-a5c2-dcfae896c370" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong><strong><strong><strong><strong><strong>Change: </strong></strong></strong></strong></strong></strong></strong></strong>Process all pins of same 8-way switch to send only one value to Max as the switch, vs. sending all 4 pins each and processing in Max</li></ul><ul id="59755b34-5d4e-4e23-b00d-81d464ba6b5d" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Addition:</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> Learn about and implement methods of reducing latency</li></ul><ul id="6d5de212-b80d-4e16-8479-6d47d847653a" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong><strong><strong><strong><strong><strong><strong>Addition: </strong></strong></strong></strong></strong></strong></strong></strong></strong>Implement accelerometer to automatically change parameters or selected instrument based on orientation/movement</li></ul><h3 id="47ceb2dc-d337-442c-aec5-a0ed757a84e7" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Reason Rack</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></h3><ul id="c6a01532-2b5a-43eb-b38a-a06e41f1dca7" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong><strong><strong><strong><strong><strong><strong>Change: </strong></strong></strong></strong></strong></strong></strong></strong></strong>refine sounds/parameters based on practice</li></ul><ul id="1008a631-18d8-4825-9da9-5c59c518fe0f" class="bulleted-list"><li style="list-style-type:disc"><strong><strong><strong><strong><strong><strong><strong><strong><strong>Addition:</strong></strong></strong></strong></strong></strong></strong></strong></strong> Added instruments (4/8 ways on the instrument selector switch remain empty), with additional Max gate and Arduino sensor information setup</li></ul>
+
+  <figure id="f82a7fd6-cd97-43b4-b3a5-4fef23a08575" class="link-to-page">    
+    <!--edit link to published public link, added target to open in new tab-->
+    <a href="https://brawny-egret-76f.notion.site/Appendix-f82a7fd6cd9743b4b3a54fef23a08575?pvs=4" target="_blank"><span class="icon">✏️</span>Appendix (opens in new tab on Notion)</a></figure></div></div><p id="8a9354a8-31dc-41c4-9050-7a3f20259ae4" class="">
+
+</p><p id="895ec0dd-84f2-40fa-9b70-6a775c5077e6" class="">
+</p><p id="2d3a117e-720d-467f-a0b9-09129af31241" class="">
+</p><p id="880acc81-b187-4982-8882-e12f08acc961" class="">
+</p><p id="09818ea8-1768-4ca9-9043-e008fe1fc068" class="">
+</p><p id="a4992e71-816d-4a1a-9ea9-5631eca4f7fd" class="">
+</p><p id="428760b6-67b8-43d7-aa21-0359a7ea2c6d" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
