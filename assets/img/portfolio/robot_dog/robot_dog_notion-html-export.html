@@ -1,0 +1,881 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Final Project: Giving a Robotic Dog Vision with OpenMV and Nicla Vision</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8a27b266-3765-4156-9c40-216b98b4eb14" class="page sans">
+  <!--
+  <header><div class="page-header-icon undefined"><span class="icon">🐶</span></div><h1 class="page-title">Final Project: Giving a Robotic Dog Vision with OpenMV and Nicla Vision</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Created</th><td><time>@May 1, 2023 10:52 PM</time></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><td></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>Partner(s)</th><td>Rachel Hsin, Jacob Choi, David Zhang, Greg Terry</td></tr></tbody></table></header>
+  -->
+
+<!--
+  <div class="page-body"><ul id="f5fe5083-4227-4a4b-8eae-a1dccfac6540" class="block-color-yellow_background toggle"><li><details open=""><summary>TO DO</summary><p id="98ccce38-a08c-40e3-80ab-6742b70659af" class="">main</p><ul id="a8d46279-2352-4810-a2ec-3150c48bc97c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">add code snippets I’m proud of (otherwise just link to github)</span><div class="indented"></div></li></ul><ul id="a773ff88-f139-4d74-97fa-0dbfb4c97084" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">ADD example of code structure from main. (detect, decide, send)</span><div class="indented"></div></li></ul><ul id="34cdbd09-9bb6-4c42-9df3-32063320c17d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">tell short story of others’ parts of dog to show I understand it</span><div class="indented"></div></li></ul><ul id="b594b3af-4ee7-4255-8949-8c7e9ee6fe43" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">more from this list</span><div class="indented"></div></li></ul><ul id="47c5b61d-81b0-4b41-bbbf-5c7749e1be8f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">check out order again</span><div class="indented"></div></li></ul><ul id="3ee3041c-6c22-4c4f-9c05-57c49ec677c5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">unsure about order of showing final stuff for eyes</span><div class="indented"><ul id="5df977f4-201c-48aa-8413-d94262e6cf55" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">for now have gif of rest of dog at top for intrigue…but save explaining functionality for end???</span><div class="indented"></div></li></ul><ul id="ba75a338-cfff-4622-805d-e49a3faa8471" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">where to name teammates? feel like beginning is natural but i was on a groove w my part</span><div class="indented"></div></li></ul><ul id="07d04774-e66d-4e0f-a458-bc9147b479a9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">lol</span><div class="indented"></div></li></ul></div></li></ul><hr id="a6a39927-8ec1-4e25-8354-07c99cbca436"/><ul id="94555b5f-6847-4bfe-ad69-e62fb853cfdf" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">READ MY DOCS OUTLOUD. IF I TRIP UP, CHANGE IT</span><div class="indented"><ul id="b5d69ba4-f65a-44dd-8d29-f18e4b4bdd73" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">find chris’ other advice like this from class</span><div class="indented"></div></li></ul></div></li></ul><ul id="dc84192d-043b-4c5c-a0ba-163773e38b79" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">go over vids from phone</span><div class="indented"><ul id="c8af924d-5660-4641-97dc-eb22358aabb7" class="bulleted-list"><li style="list-style-type:disc">good video workflow: iCloud on PC —&gt; Notion —&gt; download to PC —&gt; overlay text/edit in Clipchamp —&gt; clipchamp direct export to youtube (get link!) —&gt; paste link for edited video in this page to replace raw video! (feels like good to have on youtube for publicness? vs just having on notion?)</li></ul><ul id="0df5ff10-85a5-43b6-a917-2ab18881e18e" class="bulleted-list"><li style="list-style-type:disc">!!! left off April 17 videos — make sure to add color detection (tennis ball, clementine), blobs, circles, livestream</li></ul><ul id="f4e0906b-c872-4731-9ac7-37b6ea7d1954" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">consider switching short vids to gifs for notion (but still keep youtube version for publicness/backup)</span><div class="indented"></div></li></ul><ul id="d6848532-0483-4318-bff4-9ce27b281f0e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">add github/notion links to youtube descriptions</span><div class="indented"></div></li></ul></div></li></ul><ul id="299ec938-0b53-4156-ab2c-af133b248d27" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">go over code on github/hard drive</span><div class="indented"></div></li></ul><ul id="e0818862-e923-41ce-9afd-091cca3c6ce4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">check loom for screen recordings</span><div class="indented"></div></li></ul><ul id="6b866050-a6b3-4a1c-8cb2-69c4965def6c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">go over notability notes/ideas</span><div class="indented"><ul id="385c9242-c087-439c-b04c-00316cb02ce8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">esp. my version management chart I made — consider even putting the chart in here to show how I managed my work!!! hehe very proud of that</span><div class="indented"></div></li></ul></div></li></ul><ul id="73198879-cb57-4fa7-86f2-55979c596587" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">actual robot enhancements</span><div class="indented"><ul id="84c0f169-c2b3-4125-8941-02f5eb9c1601" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">fix current <a href="http://main.py">main.py</a> to do both color &amp; binary image for april tags (don’t work w tennis color threshold) and tennis ball detection (uses binary image)</span><div class="indented"><ul id="1418565b-7936-494c-902c-1ef4a66b88a1" class="bulleted-list"><li style="list-style-type:disc">ironic how for colored thing tennis ball need binary image from color threshold, and for b&amp;w thing april tags need color image (as far as I know, b/c that is how the algorithm is written?)</li></ul></div></li></ul><ul id="285e5b94-e9f3-451c-9dd3-dcca48669a76" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">track tennis ball</span><div class="indented"><ul id="ddf52c03-7bea-4455-b0ab-8857f5d6344b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">move head to follow</span><div class="indented"></div></li></ul><ul id="743cb183-0f4c-4572-a4f5-fb54bd0f85d3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">walk to follow</span><div class="indented"></div></li></ul></div></li></ul><ul id="284e1628-fee8-4d1f-af51-b6fbc31db443" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">follow line (have code, test w/o walking for now)</span><div class="indented"></div></li></ul><ul id="e9a5f99f-fe1d-4e39-89e1-c1f82acaece9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">finish ml</span><div class="indented"><ul id="386dc963-02d1-413a-8fc3-a6214e8ee2b0" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">test ml AFTER all other docs are done (b/c need to upload new firmware so not sure if can change back after)</span><div class="indented"></div></li></ul><ul id="6acb1644-1a05-4699-b901-21c5640abcfa" class="bulleted-list"><li style="list-style-type:disc">i am currently overfitting b/c few data right now</li></ul><ul id="f2c9fcef-a32a-4304-a8d8-c8da7a96e64d" class="bulleted-list"><li style="list-style-type:disc">its a vibe — if perform well on training but bad on testing</li></ul><ul id="62042e10-b17a-4b4e-87c0-497470417c95" class="bulleted-list"><li style="list-style-type:disc">fix by increasing samples (will overfit w small sample size)</li></ul><ul id="c2f49200-2cd0-4aea-9401-0b18ff08fc75" class="bulleted-list"><li style="list-style-type:disc">learning rate — if tendency to overfit, have low learning rate. .01 learning rate for solid sample size<ul id="eb386e72-c590-45b7-ad8b-a326bda4e836" class="bulleted-list"><li style="list-style-type:circle">at least 100</li></ul></li></ul><ul id="0d81111d-51cf-4653-ba76-a48b0b620a06" class="bulleted-list"><li style="list-style-type:disc">!!! add validation if can</li></ul><ul id="7296303b-747a-46ed-9126-47429e9d5565" class="bulleted-list"><li style="list-style-type:disc">50% tennis ball, 50% everything else</li></ul><ul id="8e891dce-7028-4404-94e9-4ab9f7e14ee5" class="bulleted-list"><li style="list-style-type:disc">eb recommended getting as many diverse bkgds as possible, and not helpful to rotate ball in same bkgd b/c the algorithm is mostly looking for the edge of the tennis ball yellow or not yellow<ul id="621f45b7-1f86-43ba-b330-8d60d8f45bee" class="bulleted-list"><li style="list-style-type:circle">and yes my face in it might mess up the algorithm</li></ul><ul id="43fae324-efd5-4d3e-9e74-0176461eb865" class="bulleted-list"><li style="list-style-type:circle">switched frame to smaller (QQVGA) from default medium (QVGA), not sure if took old point w medium and/or if the frame size affects how algorithm works</li></ul><ul id="3d8d1d12-e698-417e-a1dd-713e93127129" class="bulleted-list"><li style="list-style-type:circle">got a bunch more pics in carm on tennis &amp; unknown. need to now get even number, at least 100.</li></ul></li></ul></div></li></ul></div></li></ul><ul id="e8cea31c-e6d9-4d1c-84ef-f57d4d23ab57" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">how to store all vids? want captions even for testing or are some not worth saving? i guess later for ones that don’t make final docs can go back and add to in progress notion page</span><div class="indented"></div></li></ul><ul id="025d3de4-19dc-4793-9026-735cfd586b81" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">(put in code I have for now! it’s ok its broken put in what worked w vid then fix current version later!) fix codes, reorganize so all can be color coded in notion (seems like color coding goes away when code is super long)?</span><div class="indented"></div></li></ul><ul id="90f0a8f8-5470-4217-8b24-adea91d50846" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">(?) should I add actual code snippets to here? or for long ones esp. just link to github??? i.e. streamer code short and sweet but for main.py, <a href="http://detection.py">detection.py</a> too long for Notion to color code so not very nice to look at on Notion, but is there advantage to person being able to see right on this site?)</span><div class="indented"></div></li></ul><ul id="bee68665-f3f9-46f7-9f5f-88f36700fb83" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">(once fix april tags/tennis part of main.py) integrate livestream with main.py</span><div class="indented"><ul id="a629f559-524a-4e7e-b8ea-42fe1e2c2ee8" class="bulleted-list"><li style="list-style-type:disc">very nervous if takes up a lot of space?</li></ul><ul id="bc2c20c0-57ab-4896-999c-b89b22f4d864" class="bulleted-list"><li style="list-style-type:disc">eventually if ML gets better than my manual IP want to replace/give option of diff ways to detect tennis ball, will that take up a lot of space too?</li></ul><ul id="628d804b-3840-4024-b65d-41bd789f7ead" class="bulleted-list"><li style="list-style-type:disc">how to organize all this code? if I have a file that works on own how to integrate into <a href="http://main.py">main.py</a>? as a class w just input of wifi network want to be on? that would be pretty snazzy &amp; easy yay.</li></ul></div></li></ul><ul id="c8b5ee3b-340b-466b-b695-21895b1aaa84" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">test livestream w friend externally w split screen to prove it works far away 🙂</span><div class="indented"><ul id="d8f61d68-2f1e-43ea-9773-441c1ca82065" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">future: try to get livestream to work on global (home) network</span><div class="indented"></div></li></ul><ul id="ecfefeb4-9a25-40ff-95df-9ba31dd7a9d7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">future: try to get stream to work from site/somehow on phone</span><div class="indented"></div></li></ul><ul id="f9e25b0d-dd3a-4f7c-b9fe-22a166424978" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">(can test local w hotspot anywhere even at home)</span><div class="indented"></div></li></ul></div></li></ul><p id="0b85f6b4-23e1-4de4-adf6-ad03749188e7" class="">AHHH WHY DOESN’T NOTION LET ME FORMAT STUFF SIDE BY SIDE INSIDE OF TOGGLES</p></details></li></ul>
+-->
+    
+    <h2 id="e7b7ffbb-8b25-4d7c-8323-9339c222652f" class="">Table of Contents</h2><p id="4ea81d46-cf9b-4263-80a7-07f8973db84d" class=""><em><em><em><em><em><em><em>Credit to Notion AI for partially outlining this Table of Contents as I am finishing up my docs.</em></em></em></em></em></em></em></p><ul id="6e3b1d98-f670-471e-acea-f299bbca6829" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">The Task</a></li></ul><ul id="d1e33b2e-8468-4d01-9f30-b73d2770c6e8" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">The Team</a></li></ul><ul id="c07f625e-fc2d-48ae-b904-c1f07dee07e4" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">The Dog: Meet Woody</a></li></ul><ul id="18f660d8-5a30-4b03-a159-d434412b5620" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">See?</a></li></ul><ul id="4dd85156-eea2-4585-ba5c-880373c9cbff" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">How Does Woody See?</a></li></ul><ul id="b2326b0f-920b-4c17-80a0-aae4246352c9" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">Code Structure — main.py &amp; custom libraries</a></li></ul><ul id="0aadb87d-771f-4a46-ad79-f932c9fa0ac2" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">Easily Add Messages &amp; April Tags</a></li></ul><ul id="ce2c4955-ad28-495a-bef5-5ab2a79cbf50" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">Livestream</a></li></ul><ul id="8e75dfb9-03c6-47bd-9782-111459f3a7be" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">Other Teammates’ Work</a></li></ul><ul id="fbe85e6b-317b-407f-9937-504fb6d7da74" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">Reflection</a></li></ul><ul id="2d9bd541-9d3e-4be5-bba5-d9f7f6fc05a8" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">Next Steps and Future Work</a><ul id="a3f540d6-f114-4411-9ad1-e1c727c038e6" class="bulleted-list"><li style="list-style-type:circle"><a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">MQTT</a></li></ul><ul id="586cf43e-9b25-47ef-85ff-96d26f315554" class="bulleted-list"><li style="list-style-type:circle"><a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">Machine Learning with Edge Impulse</a></li></ul><ul id="55318387-4dca-4433-8a5e-b3751dbd092e" class="bulleted-list"><li style="list-style-type:circle"><a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">Nicla Vision Controls Servos</a></li></ul></li></ul><hr id="b0a64df2-2d8b-4957-9c29-4c6c4980e54f"/><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="7a3a6b5b-b50f-41e4-80fb-953d91f9088f"><div style="font-size:1.5em"><span class="icon">🐕</span></div><div style="width:100%">Hello! If you are reading this please be aware that this is a living document. Although the final project has concluded, I am still working to improve certain aspects of the camera vision to increase the autonomous navigation capabilities of our dog. I will keep this page up to date as I progress, likely into the summer!</div></figure><h3 id="65a8ebfa-1bdb-43b4-87b2-8c5a67bbfc26" class="">Several days ago, a friend’s friend asked me,</h3><blockquote id="7be0e0fb-3c33-4494-a90b-31f7525d467c" class="">“If you could describe your last month in three words, two being animals, what would they be?”</blockquote><p id="132af89e-0c2d-4a2f-96fa-7dfc19da3c9f" class="">I responded (with minimal hesitation),</p><blockquote id="b88a3def-2661-437d-97e1-4c5a71f736eb" class="">“Bunny, elephant, and dog.”</blockquote><p id="ff806718-4b38-455f-8275-b6d3968e4601" class="">The friend’s friend (really diving into the metaphor), asked,</p><blockquote id="582babc8-2969-4931-973c-2ea5f12a122b" class="">“What breed of dog?”</blockquote><p id="e519dbd7-ded4-4d7e-b759-9111a678197b" class="">Me (as serious as can be):</p><blockquote id="218f508d-338a-4550-a009-807d5886278d" class="">“Robotic.”</blockquote><p id="b52eac0e-c434-44b1-97b1-c7eb445eeff1" class=""><mark class="highlight-teal_background">And here commences the story of that very literal robotic-dog-third of my last month.<br/><br/></mark></p><hr id="04e11edb-ea97-42de-a8e0-e4b6d5f11674"/><figure id="ca939e77-4eb8-4cc0-8375-f284d21030fb">
+
+      <iframe width="698" height="394" src="https://www.youtube.com/embed/MWfQW3u1T5w" title="Woody dances at the sight of a tennis ball!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Woody dances at the sight of a tennis ball!"></iframe>
+      <!--
+      <div class="source"><a href="https://www.youtube.com/watch?v=MWfQW3u1T5w">https://www.youtube.com/watch?v=MWfQW3u1T5w</a></div>
+      -->
+      
+      <figcaption>Say hi to Woody. He really likes tennis balls. (Volume on!)</figcaption></figure><h1 id="59d7e062-4ca4-45ef-8e39-d4eddd56dff4" class="">📝 The Task</h1><p id="80c578c7-df7c-4a41-8e1f-f557d17d9e4a" class="">As a culmination of the spring ‘23 semester of ME35: Intro to Robotics, our professor (Chris Rogers) tasked us, in teams of five, to<div class="indented"><h3 id="22b6dce0-0e36-4bdf-bf67-19ed424bc3b5" class=""><mark class="highlight-blue_background">build a quadruped robotic dog that can walk, dance, and move in reaction to objects it sees in its environment</mark></h3></div></p><p id="6e311fe0-3403-4fd5-a43f-e6bd1ee86bf9" class="">We could order whatever electrical parts we needed, while being encouraged to be friendly to the planet (i.e. use as much wood, instead of acrylic, as possible for physical fabrication).</p><h3 id="ffc20cfe-2b49-43e2-b15c-68e6a9fafb22" class="">A summary of how the assignment came to be:</h3><figure id="d6b96dd9-580a-4f0b-83c4-d562cf981aa9" class="image"><a href="robot_dog_pics/realrobotics_comic.jpg"><img style="width:1904px" src="robot_dog_pics/realrobotics_comic.jpg"/></a><figcaption>A comic summarizing the evolution of ME35 goals, roles, and perspectives over the semester, through a metaphor referencing the age-old quote about shooting for the moon and landing among the stars.</figcaption></figure><h1 id="2ec32834-3220-425b-85da-6f64e9f95c11" class="">🏆 The Team</h1><p id="7ce31b06-bdff-4374-b4b1-10a4cc2e39d4" class="">In an effort to emulate in 4 weeks what Boston Dynamics has been working on for 30 years, we assembled a team with members eager to tackle specialized sections of the project:</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ac109825-4fc8-4d8a-8c4a-7e2b807224f7"><div style="font-size:1.5em"><span class="icon">🐕</span></div><div style="width:100%">Click on team members’ names below to see more details on their sections of the project.<h3 id="ed6616d0-e0d8-4f06-aea5-9f51ecfad07f" class="">👥 <a href="https://www.notion.so/cbfb34118b1b444a8a3434dd3010067e?pvs=21">Rachel Hsin</a> and <a href="https://www.notion.so/Final-Project-Walking-Dog-b438c763453b419292fb7d34925af6c6?pvs=21">Greg Terry</a>   ➡️   Fabrication 🔨</h3><h3 id="2e02bc92-d0ba-4176-823e-9e549e353c2d" class="">👤 <a href="https://www.notion.so/Final-Robotic-Quadruped-Dog-with-ROS-and-OpenMV-f2feed3d056e45b3b69db89706526826?pvs=21">Jacob Choi</a>                              ➡️   Brain 🧠</h3><h3 id="7d052c36-3295-43f6-9833-7f7599529808" class="">👤 <a href="https://www.notion.so/Robot-Dog-75b9c8234dd44704a4a08afc4b02106c?pvs=21">David Zhang</a>                           ➡️   Legs 🦿</h3><h3 id="a83b4969-bce5-475b-b4b5-925ae9659048" class="">👤 <mark class="highlight-yellow_background">Rose Kitz (me!)                       ➡️   Eyes 👀</mark></h3></div></figure><p id="77d52278-971d-461d-a83c-3192fa4ccce1" class="">
+</p><h1 id="947a8657-888e-4a4a-8a13-63fb423a11ce" class="">🐶 The Dog: Meet Woody</h1><div id="c6e928f4-349d-4254-8f15-1bdf5f78189d" class="column-list"><div id="ef5e1320-a678-4239-ab1d-e6dc6af42c61" style="width:50%" class="column"><p id="21a2e560-f50a-426e-932b-e0b25a13bdc3" class="">Woody, in his present state, enjoys a relaxed life in the front corner of our lovely Tufts makerspace. He doesn’t mind the constant drone of drills, 3D printers, and college students’ voices, as most people leave him alone. When he gets to go outside (of his storage box), Woody wobbles with excitement.</p><h3 id="f332075e-7aea-4da6-9651-1b55499142cd" class="">Woody is no standard dog — for he could recognize fiducials before he could walk.</h3></div><div id="3db4575e-45e6-47b4-b755-b9ed2ba25c4c" style="width:50%" class="column"><figure id="cc4a2f5b-eafb-4bd1-b258-f10581406996" class="image"><a href="robot_dog_pics/woody_w_tennis_ball.jpeg"><img style="width:432px" src="robot_dog_pics/woody_w_tennis_ball.jpeg"/></a><figcaption>Woody used to think everything was a tennis ball. With a few weeks of training, he’s recognizing actual tennis balls better than ever.</figcaption></figure></div></div><div id="b4725942-99b6-4975-8113-5eee905bcd34" class="column-list"><div id="20cf30df-6e44-45be-90f6-f972a6fd8f21" style="width:50%" class="column"><figure id="5bc20fd4-4a76-4865-9e65-539c1c958ba2" class="image"><a href="robot_dog_pics/quadruped_walking_one_cycle.gif"><img style="width:600px" src="robot_dog_pics/quadruped_walking_one_cycle.gif"/></a><figcaption>Woody on his best behavior taking a few steps forward. Check out the end of my docs for more details on my teammates’ work on the rest of the dog.</figcaption></figure></div><div id="f00dc596-80ab-404a-95f6-20f1525ff0e6" style="width:50%" class="column"><p id="597fe815-e534-43ac-8bdb-7faec881e4d7" class="">Over the last four weeks, my team and I have been hard at work to develop Woody from a mere sketch to a walking, dancing, light-flashing, tennis-ball-recognizing, and still-occasionally-tumbling robotic dog.</p><p id="2e81f00a-c8e9-4b53-a5d2-e25f74e03f47" class="">While my teammates worked hard to design, program, and power the dog’s physical motion, I faced one specific goal:<div class="indented"><h2 id="5ae0d2a7-ab06-42c6-8590-91681e0d17fe" class=""><mark class="highlight-blue_background">to train Woody to see the world around him.</mark></h2></div></p></div></div><p id="f857c1e3-2b6d-4226-bbf4-299d7b2b98d3" class="">I am proud to report I still have <em>no</em> idea how to train a real dog, but I can certainly train a robotic one (there’s a reason I became an engineer and not a veterinarian).</p><hr id="43269aa2-538f-43bb-8786-68899962d734"/><h1 id="b4c79f22-b7ac-452f-8779-a18dd608b772" class="block-color-blue_background">👀 See ?</h1><p id="cdf43a26-59ac-4a12-8e70-f90f5759b93c" class="">There are so many ways a dog can navigate its environment. I focused on three autonomous methods to control the behavior of the dog:</p><ul id="6ca717c0-aca7-4669-99ab-cc8689b96b45" class="bulleted-list"><li style="list-style-type:disc">🎾 a tennis ball — real dogs loves these, so Woody should, too!<ul id="3f9456ee-6138-43ce-8cbf-ace6f6b2cc71" class="bulleted-list"><li style="list-style-type:circle">Also, an interesting challenge to pre-process (denoise), recognize color, and recognize a shape to identify a specific object (in the end, <mark class="highlight-teal_background">a good machine learning model</mark> would be more accurate &amp; faster — so I tried it! see my <a href="https://www.notion.so/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=21">work-in-progress at the end of the page</a>)</li></ul><ul id="0bf89d12-4893-40fc-856c-d8f87429eb87" class="bulleted-list"><li style="list-style-type:circle">Unfortunately not universally reliable across lighting conditions — for now, it is necessary to capture a new color threshold in a new room (can save in <a href="http://thresholds.py">thresholds.py</a> to easily access later), in future could use ML or write algorithm to adjust thresholds based on lighting conditions</li></ul></li></ul><ul id="e1104911-316d-44de-bfbd-aeb3111fef81" class="bulleted-list"><li style="list-style-type:disc">📓 April tags — reliable &amp; accurate in all lighting conditions &amp; visual rotations, quicker than QR codes (using pre-established library vs. a link)</li></ul><ul id="b07e76b0-5867-430d-9d53-48dbd7389073" class="bulleted-list"><li style="list-style-type:disc">🛑 distance — an emergency stop causes the dog to stop if ANYTHING is too close, so no matter what it sees, it doesn’t run into anything and get damaged</li></ul><p id="43dba9fa-67a3-496b-b8af-926a54e0f19d" class="">Since the April tags are so discrete &amp; unique from other detectable objects, they proved 99% accurate (as long as I could get them in frame 😂), while the tennis ball was often difficult to consistently distinguish from light-colored backgrounds and similar-colored, similar-sized objects even with different shapes.</p><figure id="7fcd2e8d-46d4-4935-8ad3-ab20bed94240">
+  
+  <iframe width="698" height="394" src="https://www.youtube.com/embed/cz3A9moMHkw" title="Detecting Tennis Ball, April Tags, AND Distance with Nicla Vision" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Detecting Tennis Ball, April Tags, AND Distance with Nicla Vision!"></iframe>
+  <!--
+  <div class="source"><a href="https://www.youtube.com/watch?v=cz3A9moMHkw">https://www.youtube.com/watch?v=cz3A9moMHkw</a></div>
+  -->
+  
+  <figcaption>Video showing ALL THREE detection methods working within same <a href="http://main.py">main.py</a> script. Check out individual testing videos below.</figcaption></figure><div id="b932e94f-a8a9-42d1-aeaa-fa31dda9b982" class="column-list"><div id="b7c2144d-67f2-4344-932f-6b3067a1c1dc" style="width:43.75%" class="column"><h3 id="0cbd4842-fac7-4c32-b942-8d1aa82f6286" class=""><mark class="highlight-gray_background">Woody sees…</mark></h3><h3 id="2be72eec-e006-45bf-86ce-7f41f5fbf9fe" class="">🎾 A Tennis Ball</h3><p id="c11cfe8d-597f-4039-8b42-6893440233b2" class="">
+</p><p id="171697fc-217a-4c5c-93ac-462bcd1df276" class="">🏁 take image 📸 </p><p id="c961bb9c-985c-4749-a9e1-685f0daf722f" class="">➡️ binary based on tennis threshold in this lighting 🔲</p><p id="882465e4-bab6-4470-abbe-3f44d8e15f76" class="">➡️ erode &amp; dilate to eliminate noise ⛏️</p><p id="58ff0454-eea9-4013-932f-de194cfcff32" class="">➡️ recognize circle of high strength ⚪</p><p id="dc06aae5-7612-49e6-aa38-fe3938c25b55" class="">➡️ if see 🎾, turn on indicator LED 💡</p><p id="b1bec29f-a66e-41bd-a86c-c5e350e6b3cd" class="">➡️ send serial ‘d’ to dance to brain 🧠</p><p id="68afbc54-2826-4493-b16e-3cd34959039d" class="">➡️ Woody dances 🕺🏻</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="88597404-6323-4191-8803-0160206dc089"><div style="font-size:1.5em"><span class="icon">🐕</span></div><div style="width:100%"><strong>Next Steps:<br/>- <br/></strong>ML to identify ball<br/>- track ball location for head to follow &amp; ‘watch’ the ball<br/>- allow dog to chase after it<br/>- improved denoising before identification<br/></div></figure><p id="4abeb1eb-d7cb-4f2d-80fa-6806647e1013" class="">
+</p><p id="942a31d7-1ac3-4a90-9077-b5f991ce024f" class="">
+</p><p id="6dcbf764-a411-4367-8f22-59ea09a255f7" class="">
+</p><hr id="d6f614b7-a355-4605-a1a0-72678775fe5f"/><h3 id="3190348d-a7e2-4ff4-aa19-40cb7b935c89" class="">📓 April Tags</h3><p id="b26a9c55-43c3-4912-9820-ddfcfe7968f9" class="">
+</p><p id="da957b4c-486e-46ff-bc01-40a5a80adbd7" class="">🏁 take image 📸</p><p id="30d9a1e4-b667-4411-8da1-4a587858c818" class="">➡️ find <em><em><em><em>all</em></em></em></em> April tags 🔳</p><p id="7fe0fe00-fc75-494c-addc-9e7bd77a43db" class="">➡️ filter for 36H11 family and ID within range of number of commands 🆔</p><p id="1f51b2ae-1298-4b3f-a33a-786b6d596685" class="">➡️ if see, turn on LED and send serial:</p><figure id="fee187e6-6a5c-4d9b-9246-2ac7b1d4aa1d" class="image"><a href="robot_dog_pics/Untitled.png"><img style="width:943px" src="robot_dog_pics/Untitled.png"/></a></figure><p id="1cdd4acf-4b00-4d72-8cee-148f99146214" class="">➡️ Woody moves as directed 🐾</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="3b7dad5b-7593-4597-bc42-283b9b7318f6"><div style="font-size:1.5em"><span class="icon">🐕</span></div><div style="width:100%"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Next Step:</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> create grid of April tags on ground for dog to navigate a large space</div></figure><hr id="4fec1f93-f5e3-4c0f-a0b1-485869d86d2a"/><h3 id="899e2ab3-4572-4716-a17d-e16c2b83728d" class="">✋🏻 Anything “too” close</h3><p id="5d9fc5bb-348f-423d-8db0-afc764944d82" class="">🏁 read distance sensor 📏</p><p id="6b24ff2d-053d-4acc-924d-a74fb225fbe2" class="">➡️ if distance &lt; 150 mm, turn on red LED 🔴</p><p id="a904226e-fbd6-488f-ae90-854c22cefeeb" class="">➡️ send serial ‘s’ to brain 🧠</p><p id="c9500603-9859-4fb2-a06c-def0fea909d3" class="">➡️ Woody stops moving</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="c478d383-b094-4d36-b294-711974aabe20"><div style="font-size:1.5em"><span class="icon">🐕</span></div><div style="width:100%"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Next Step:</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> Incorporate more sensors built-in to board (mic, accel) to enhance sensor fusion</div></figure><p id="1e53c81f-8336-4681-a6ef-76117c641428" class="">
+</p></div><div id="2c76583a-4b1e-4aab-b2cd-525af44d3198" style="width:56.25%" class="column"><h3 id="d9cbeeeb-a293-493e-8784-81a940646da9" class=""><mark class="highlight-gray_background">Woody does…</mark></h3><h3 id="5faaa57e-aaef-4548-a3e7-38ec1d2c2aba" class="">🕺🏻 Dance &amp; move head around</h3><figure id="a0eb7aca-f515-457a-8af0-ecee8cb7567b">
+
+  <iframe width="300" height="200" src="https://www.youtube.com/embed/MWfQW3u1T5w" title="Woody dances at the sight of a tennis ball!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Woody dances at the sight of a tennis ball!"></iframe>
+  <!--
+  <div class="source"><a href="https://www.youtube.com/watch?v=MWfQW3u1T5w">https://www.youtube.com/watch?v=MWfQW3u1T5w</a></div>
+  -->
+  
+  <figcaption>Woody finally dances when he sees the tennis ball 🙂</figcaption></figure><figure id="04e1a802-6100-4372-834a-0c5e0cb8897e">
+
+    <iframe width="300" height="200" src="https://www.youtube.com/embed/O6D7Zydy9zQ" title="Robot Dog Recognizes Tennis Ball" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Robot Dog Recognizes Tennis Ball"></iframe>
+    <!--
+    <div class="source"><a href="https://www.youtube.com/watch?v=O6D7Zydy9zQ">https://www.youtube.com/watch?v=O6D7Zydy9zQ</a></div>
+    -->
+    
+    <figcaption>Woody recognizes a tennis ball!</figcaption></figure><p id="ac9055ad-5cea-4e5b-80f0-40df1fd15c95" class="">
+</p><hr id="f3f73799-1838-400d-88a3-be8bc028f059"/><h3 id="e5af190c-b322-4be0-895f-0054e0a8ef66" class="">👣 A movement for each different tag ID</h3><figure id="a1c95d37-170f-4c7c-b40d-86d6c52a3bc1"><div class="source"><a href="https://www.youtube.com/watch?v=cIhGNEBhQTE">https://www.youtube.com/watch?v=cIhGNEBhQTE</a></div><figcaption>SpongeBob interludes courtesy of GIPHY.com</figcaption></figure><figure id="7ea8fae2-e1ee-4854-a9d2-5a5d17a5318c"><div class="source"><a href="https://www.youtube.com/watch?v=y0w0lRstklU">https://www.youtube.com/watch?v=y0w0lRstklU</a></div><figcaption>*** in-progress video — dog actions &amp; LEDs don’t match final dog *** will add video later of dog physically reacting to different april tags. Note you can see the indicator LED colors in the reflection of the phone screen.</figcaption></figure><hr id="061ed388-6ae6-4d81-8bb6-62a0326f7627"/><h3 id="267158d1-6ec1-4ae0-9982-8d0d76b435db" class="">🛑 Stop</h3><figure id="15e68e1f-b5ee-4277-bb8d-5adb96c409ea"><div class="source"><a href="https://www.youtube.com/watch?v=EUFF0BpYWCQ">https://www.youtube.com/watch?v=EUFF0BpYWCQ</a></div><figcaption>Camera sends “stop!” and turns LED red if anything is too close (video working on actual dog to come)</figcaption></figure></div></div><p id="fea514da-e603-4065-91cd-1b15bd0f511f" class="">Writing this reminds me that I should probably relocate Woody before someone accidentally throws him out at the end of the semester. Anyways, here’s a short story on how Woody came to be.</p><hr id="58159b97-55c4-4ed3-b23f-8cd70fecb28d"/><h1 id="c05426b8-37b7-4776-b8bd-ec16c62ab0d3" class="">👁️ How does Woody see, you ask?</h1><p id="ec3b0169-f9ec-4f9c-91a6-2f5e00ed2d43" class="">Meet the Nicla Vision. It’s a teeny-tiny Arduino-based board loaded up with all sorts of sensors — apart from the 2 MP color camera, it fits a time-of-flight/distance sensor, 6-axis gyroscope/accelerometer, microphone, and Wi-Fi/BLE capabilities. At a steep price of $115, Woody’s eyes shine golden.</p><figure id="3ee8e4c2-03a3-40db-bd6f-d5e2b8fa06e5" class="image"><a href="robot_dog_pics/Untitled%201.png"><img style="width:336px" src="robot_dog_pics/Untitled%201.png"/></a><figcaption><a href="https://store-usa.arduino.cc/products/nicla-vision">https://store-usa.arduino.cc/products/nicla-vision</a></figcaption></figure><p id="d1b3a148-ee60-4d9f-aec8-8acde783a7ec" class="">
+</p><p id="1bd9d55e-4d38-4652-85c6-53d698260d80" class="">“So many possibilities,” you might be thinking. Yup. So. Many. Possibilities. I’ve never had my own dog, but I think the simultaneous excitement and fear I felt as I researched and realized how varied the outcomes could be with this camera might nearly match the overwhelming feelings of being a new dog owner.</p><p id="b0fcb201-9090-40d1-9ebb-b97f7d196454" class="">
+</p><p id="8537eeb9-c593-4b7f-b6c9-3a69bf384451" class="">After various waves of joy, confusion, frustration, and bewilderment, I decided to make a chart — it was the best way to keep my ambition and “rabbit hole” susceptibility in check. Here is the chart (after many weeks of annotation):</p><figure id="b0eca162-a646-4255-8b85-a669b705a4a6" class="image"><a href="robot_dog_pics/Final.jpg"><img src="robot_dog_pics/Final.jpg"/></a></figure><p id="c38e2a33-8351-4da0-a82b-a6113f6c1cda" class="">
+</p><p id="2933de08-bef0-4bdc-ab72-5ca64e27b25a" class="">To ensure that Woody would indeed recognize our commands and <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>actually follow them</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em></em>, I tackled three main challenges:</p><ul id="9a640dae-5146-468a-9694-838e170eae7d" class="bulleted-list"><li style="list-style-type:disc">👀 <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>DETECTION — </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>determine how Woody would navigate his environment — what would he react to?</li></ul><ul id="0774ac46-1322-4814-90ec-730dbb1368ca" class="bulleted-list"><li style="list-style-type:disc">💬 <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>COMMUNICATION — </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>find the quickest &amp; most reliable way to send visual information from the “eyes” to the “brain.”</li></ul><ul id="d536d986-6cf8-4e98-b7b1-7d13aa900cb1" class="bulleted-list"><li style="list-style-type:disc">📏 <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>VALIDATION — </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> proving to myself and my teammates that Woody would behave as expected in any environment.</li></ul><p id="16aa2172-99aa-40a3-b991-60eadf422b59" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="132a04fa-42b2-47dc-8e9f-ea4ac01d3b31"><div style="font-size:1.5em"><span class="icon">🔖</span></div><div style="width:100%"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Future Improvements:<br/><br/></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> — make the dog behave more <em><em><em><em><em><em><em><em><em>naturally</em></em></em></em></em></em></em></em></em> in an environment (without a human involved in the moment) — i.e. move forward if nothing too close, turn at April tags on floor, follow a line, etc.<br/>— improve tennis ball detection accuracy — so things like small boxes of similar size aren’t mistaken (i.e. detect rectangle in image and compare strength to circle to decide if more of a ball or box, use ML)<br/></div></figure><p id="88da389a-a6f4-42f9-84d2-d5490e652916" class="">
+</p><p id="01afd49b-48b9-4a48-9b6d-e4c17eb9ae93" class="">
+</p><h1 id="bc02986a-f7fa-4d19-b55a-f6aeeb430830" class="">👩🏻‍💻 How is this all happening on that tiny but mighty camera?</h1><p id="3ae0f652-ba27-4696-b343-0b35328649e6" class="">There are three important files housed on the camera board that allow the camera to smoothly enable any detection method described below at any time.</p><ul id="a3e57a73-fd34-4c92-8976-0655398b0df0" class="bulleted-list"><li style="list-style-type:disc"><a href="https://github.com/jchoi2507/Robotic_Quadruped/blob/main/Camera/final_codes/run_on_camera_board/detection.py">detection.py</a> is a <strong><strong><strong><strong><strong><strong><strong>library</strong></strong></strong></strong></strong></strong></strong> consisting of all the detection methods I’ve tested to find various objects, colors, shapes, etc. Most of the functions simply take in the raw image data from the camera and return either True/False or an integer number based on whether something is detected in the image. These separate functions make it easy to perform sensor fusion in <a href="https://github.com/jchoi2507/Robotic_Quadruped/blob/main/Camera/final_codes/run_on_camera_board/main.py">main.py</a> by getting information about the image from running these functions, then writing conditionals to decide what the robot dog should do as a result of what it sees at the moment</li></ul><figure id="03a9e661-a63d-4188-a0dc-dc0f622e9764"><a href="https://github.com/jchoi2507/Robotic_Quadruped/blob/main/Camera/final_codes/run_on_camera_board/detection.py" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Robotic_Quadruped/detection.py at main · jchoi2507/Robotic_Quadruped</div><div class="bookmark-description">Final project for ME35: Robotics &amp; Mech. Spring 2023. - Robotic_Quadruped/detection.py at main · jchoi2507/Robotic_Quadruped</div></div><div class="bookmark-href"><img src="https://github.com/fluidicon.png" class="icon bookmark-icon"/>https://github.com/jchoi2507/Robotic_Quadruped/blob/main/Camera/final_codes/run_on_camera_board/detection.py</div></div><img src="https://opengraph.githubassets.com/7fd5eb40a03883f533bcafbb35cdb41402e493fc362195be8b6eb6a725f1dc32/jchoi2507/Robotic_Quadruped" class="bookmark-image"/></a></figure><ul id="fd2b6623-698f-4fb0-81c6-b0133bcab5a4" class="bulleted-list"><li style="list-style-type:disc"><a href="https://github.com/jchoi2507/Robotic_Quadruped/blob/main/Camera/final_codes/run_on_camera_board/main.py">Main.py</a> is the <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>automatic script</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> running on the camera that takes the image snapshots over time, decides what the dog should do as a result of what it sees, and sends a one-character USB VCP serial message to the ROS RasPi brain to instruct the dog how to behave. Many sections can be commented/uncommented out to change what visual stimuli trigger the dog to perform certain actions, and with <a href="https://github.com/jchoi2507/Robotic_Quadruped/blob/main/Camera/final_codes/run_on_camera_board/detection.py">detection.py</a> fully imported, any function from that library can be implemented to get more information about the image. <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="64c2ae7f-9415-436b-94a8-0e58bc2590c8" class="code code-wrap"><code class="language-Python"># snippet of color thresholding &amp; denoising to identify color of tennis ball
+
+# Make image b&amp;w and eliminate noise
+img.binary([thresholdsTennisBall7])
+img.erode(3,3) # from testing realized want smaller threshold for erode and larger for dilate so lots of pixels are deleted, but only bigger clusters are expanded (not small noise left expanded)
+img.dilate(3,15)</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="48c90631-8d4f-4a9d-9ee8-3229f8d62b49" class="code code-wrap"><code class="language-Python"># snippet using custom &#x27;detection&#x27; library to get SIMPLE output in main.py
+# similar method applies for april tags &amp; distance, and indicator LEDs
+
+# get if circle is detected in image
+# -- input params: image snapshot
+# -- output: T/F if any circles are in image
+is_circle = detection.is_circle(img,5000,testing) # (img,threshold,testing)
+
+# ... set message based on all info from detection methods ...
+
+# turn on indicator LEDs based on message
+detection.led_from_message(ledRed,ledGreen,ledBlue,message,msgs,leds)</code></pre><p id="4d27708e-7d2d-457e-ba82-ccd5ac7e1f02" class="">There is also a boolean “testing” variable that makes it easy to validate that the code will work as expected even when not connected to the brain over USB (print in console instead of sending serial, enable IDE livestream drawing to identify blobs, and other functions to improve debugging)</p></li></ul><ul id="9a5efdae-24d0-4a20-9307-e401b36e4732" class="bulleted-list"><li style="list-style-type:disc"><a href="https://github.com/jchoi2507/Robotic_Quadruped/blob/main/Camera/final_codes/run_on_camera_board/thresholds.py">thresholds.py</a> is a <strong><strong><strong><strong>library</strong></strong></strong></strong> of constants that have been tested with the various detection methods and generally do not need to be changed very often. Not all constants are implemented in <a href="https://github.com/jchoi2507/Robotic_Quadruped/blob/main/Camera/final_codes/run_on_camera_board/main.py">main.py</a> at one time, therefore it is convenient to save them in this library in case they can be implemented in the future. The library currently includes a stopping distance and many color threshold lists for blob detection, many of which are adjusted for different lighting conditions and are therefore useful in <a href="https://github.com/jchoi2507/Robotic_Quadruped/blob/main/Camera/final_codes/run_on_camera_board/main.py">main.py</a> at different times.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="bb1cc8a7-41bb-46b8-9f26-a3e12778171f" class="code code-wrap"><code class="language-Python">from thresholds import thresholdsOrange, thresholdsTennisBall7, STOP_MAX
+# by storing info like color thresholds in this library, different constants can quickly &amp; easily be switched out while testing main.py</code></pre></li></ul><p id="ba8050ee-b971-48f7-9fef-661e18dc6ac9" class="">
+</p><h2 id="11010ea6-253a-4fa4-bae3-e99f357c5f73" class="">🗨️ And, check out how easy it is to adjust the <a href="http://main.py">main.py</a> to have the dog react to new messages from April tags!</h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="b0d1a688-3158-4668-b59e-e9c105bc297d" class="code code-wrap"><code class="language-Python"># by adding/removing/exchanging the strings in between the first and last, the code later automatically accounts for new april tags to trigger each of the &#x27;middle&#x27; commands
+
+msgs = [&#x27;n&#x27;,&#x27;s&#x27;,&#x27;f&#x27;,&#x27;r&#x27;,&#x27;l&#x27;,&#x27;d&#x27;,&#x27;d&#x27;] # Messages to send to Raspberry Pi over UART (SUBBED &#x27;d&#x27; for &#x27;h&#x27; for tennis ball detected b/c not programmed to dance and move head (&#x27;h&#x27;) yet
+                     # nothing, stop, forward, right, left, dance, move head AND dance
+
+leds = [&#x27;n&#x27;,&#x27;r&#x27;,&#x27;g&#x27;,&#x27;gb&#x27;,&#x27;gr&#x27;,&#x27;b&#x27;,&#x27;rgb&#x27;] # Onboard LED colors to choose related to each message
+
+# later on...send only list of msgs to relate to April tags to custom function
+april_id = detection.get_april_tag(img,msgs[1:len(msgs)-1]) # !!! end of range is exclusive so want to exclude last (6 = 7th) index -- only send msgs in range that are triggered by april tags, not msgs triggered by other things detected</code></pre><figure id="5e1666fc-30d3-44a9-a7cb-6565df5fa5ff"><div class="source"><a href="https://www.youtube.com/watch?v=Hplk86i3h0M">https://www.youtube.com/watch?v=Hplk86i3h0M</a></div></figure><h1 id="4ac4454a-9fb5-4bb2-b147-ca1182df5b5b" class="">🌝 Have you ever wanted to see the world from a dog’s eyes?</h1><div id="3de30bfe-21e8-460e-a411-0d5c9c93b393" class="column-list"><div id="17cfefef-8502-41a8-baf8-87a2a037717f" style="width:37.5%" class="column"><p id="7ebdc187-84a7-4012-a41b-766a3c5c933d" class="">Well, now you can — as long as you’re on the same local Wi-Fi network as your dog 🙂. Maybe as the dog grows up it will be able to share its view with anyone around the world (on a global network).</p><p id="3b23c0fc-1e58-4ba4-938c-bfdc858b94a8" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Anyone that can log onto the same local network the dog is on can view what the camera sees from their own computer by running a </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><a href="https://github.com/jchoi2507/Robotic_Quadruped/blob/main/Camera/final_codes/stream_from_pc_on_local_network.py"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>simple Python script</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></a><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>.</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><p id="7b2b54ed-f919-4f1e-9b91-b78501aacad5" class="">
+</p></div><div id="634db9be-d19a-4b6d-a98b-4f2f7262b402" style="width:62.5%" class="column"><figure id="7600258c-7cee-4d50-bdb5-14ac0580d4ae"><div class="source"><a href="https://www.youtube.com/watch?v=t7QKpDrQVQM">https://www.youtube.com/watch?v=t7QKpDrQVQM</a></div><figcaption>How to view the dog’s POV wirelessly!</figcaption></figure></div></div><figure id="28540758-2735-4674-b40d-889aaa60ead8"><div class="source"><a href="https://www.loom.com/share/f1dbe7743bef488d8e289e9969cb4e87">https://www.loom.com/share/f1dbe7743bef488d8e289e9969cb4e87</a></div><figcaption>Streaming with camera connected to OpenMV IDE to see serial feedback!</figcaption></figure><p id="853ea01a-9e5a-4c4e-bf4c-24cf082d4e61" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ba036e66-b523-44b0-b10a-5c02f0be4eec"><div style="font-size:1.5em"><span class="icon">🔖</span></div><div style="width:100%"><strong>Future Updates:<br/>— Integrate livestream into <br/></strong><a href="http://main.py"><strong>main.py</strong></a><strong> to livestream while interacting with dog (currently, the streaming code is separate) — this is currently proving difficult due to the callbacks<br/>— <br/></strong>Configure the livestream on a global network so anyone around the world (don’t have to be on same network as dog) can view the livestream<br/>— Find a way to view the stream from a phone/mobile device (i.e. hosting the stream on a website/IP address rather than having to run a Python script on a PC that has OpenCV<br/></div></figure><ul id="92615f2d-5c4c-43cb-9024-ee3afda34702" class="toggle"><li><details open=""><summary>💻 <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>PC Viewer: </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><mark class="highlight-blue_background">Click arrow to see Python code to start viewing the livestream on your PC, or check out </mark><a href="https://github.com/jchoi2507/Robotic_Quadruped/blob/main/Camera/final_codes/stream_from_pc_on_local_network.py"><mark class="highlight-blue_background">GitHub</mark></a></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="704513c7-dc96-4b87-ac40-ed986d0b8d22" class="code code-wrap"><code class="language-Python">import cv2
+cap = cv2.VideoCapture(&quot;rtsp://10.5.3.119:554/test/Imeanit&quot;)
+
+while(cap.isOpened()):
+    ret, frame = cap.read()
+    cv2.imshow(&#x27;frame&#x27;, frame)
+    if cv2.waitKey(20) &amp; 0xFF == ord(&#x27;q&#x27;):
+        break
+cap.release()
+cv2.destroyAllWindows()</code></pre></details></li></ul><ul id="605d4c87-79a3-4105-ad42-06fcb42ead47" class="toggle"><li><details open=""><summary>📷 <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Camera Stream: </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><mark class="highlight-blue_background">Click arrow to see MicroPython code running on camera to start RTSP livestream or check out </mark><mark class="highlight-blue_background"><a href="https://github.com/jchoi2507/Robotic_Quadruped/blob/main/Camera/final_codes/run_on_camera_board/stream_from_nicla.py">GitHub</a></mark></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4ea6bf1c-cc44-496c-a325-4f196fba4ad7" class="code code-wrap"><code class="language-Python"># Example adapted by Rose Kitz from OpenMV
+
+# RTSP Video Server
+#
+# This example shows off how to stream video over RTSP with your OpenMV Cam.
+#
+# You can use a program like VLC to view the video stream by connecting to the
+# OpenMV Cam&#x27;s IP address.
+
+import network, omv, rtsp, sensor, time
+
+# RTP MJPEG streaming works using JPEG images produced by the OV2640/OV5640 camera modules.
+# Not all programs (e.g. VLC) implement the full JPEG standard for decoding any JPEG image
+# in RTP packets. Images JPEG compressed by the OpenMV Cam internally may not display.
+
+# FFPLAY will correctly handle JPEGs produced by OpenMV software.
+
+sensor.reset()
+
+sensor.set_pixformat(sensor.RGB565)
+sensor.set_framesize(sensor.VGA)
+
+# Turn off the frame buffer connection to the IDE from the OpenMV Cam side.
+#
+# This needs to be done when manually compressing jpeg images at higher quality
+# so that the OpenMV Cam does not try to stream them to the IDE using a fall back
+# mechanism if the JPEG image is too large to fit in the IDE JPEG frame buffer on the OpenMV Cam.
+
+omv.disable_fb(True)
+
+# Setup Network Interface
+
+SSID=&#x27;tufts_eecs&#x27; # Network SSID
+KEY=&#x27;foundedin1883&#x27;  # Network key
+
+print(&quot;start&quot;)
+
+network_if = network.WLAN(network.STA_IF)
+print(&quot;1&quot;)
+network_if.active(True)
+print(&quot;2&quot;)
+network_if.connect(SSID, KEY, timeout=30000)
+print(&quot;3&quot;)
+
+while not network_if.isconnected():
+    print(&quot;Trying to connect. Note this may take a while...&quot;)
+    time.sleep_ms(1000)
+print(&quot;connected&quot;)
+
+# Setup RTSP Server
+
+server = rtsp.rtsp_server(network_if)
+print(&quot;rtsp setup&quot;)
+
+# For the call back functions below:
+#
+# `pathname` is the name of the stream resource the client wants. You can ignore this if it&#x27;s not
+# needed. Otherwise, you can use it to determine what image object to return. By default the path
+# name will be &quot;/&quot;.
+#
+# `session` is random number that will change when a new connection is established. You can use
+# session with a dictionary to differentiate different accesses to the same file name.
+
+# Track the current FPS.
+clock = time.clock()
+
+def setup_callback(pathname, session):
+    print(&quot;Opening \&quot;%s\&quot; in session %d&quot; % (pathname, session))
+
+def play_callback(pathname, session):
+    clock.reset()
+    clock.tick()
+    print(&quot;Playing \&quot;%s\&quot; in session %d&quot; % (pathname, session))
+
+def pause_callback(pathname, session): # VLC only pauses locally. This is never called.
+    print(&quot;Pausing \&quot;%s\&quot; in session %d&quot; % (pathname, session))
+
+def teardown_callback(pathname, session):
+    print(&quot;Closing \&quot;%s\&quot; in session %d&quot; % (pathname, session))
+
+print(&quot;4&quot;)
+server.register_setup_cb(setup_callback)
+print(&quot;5&quot;)
+server.register_play_cb(play_callback)
+print(&quot;6&quot;)
+server.register_pause_cb(pause_callback)
+print(&quot;7&quot;)
+server.register_teardown_cb(teardown_callback)
+print(&quot;8&quot;)
+
+# Called each time a new frame is needed.
+def image_callback(pathname, session):
+    print(&quot;image callback&quot;)
+    img = sensor.snapshot()
+    # Markup image and/or do various things.
+    print(clock.fps())
+    clock.tick()
+    return img
+
+# Stream does not return. It will call `image_callback` when it needs to get an image object to send
+# to the remote rtsp client connecting to the server.
+print(&quot;9&quot;)
+server.stream(image_callback, quality=70)
+print(&quot;10&quot;)</code></pre></details></li></ul><p id="a5be06a5-1259-4749-a233-a0e25687891c" class="">
+</p><h3 id="098dc1fa-b017-4214-8027-7972ef129795" class="">🐕‍🦺 It’s cool to see the world as a dog…but why?</h3><p id="0724e55f-c8a6-4d5e-a97a-fe5810f5527c" class="">For starters, it’s HARD to get stuff in the camera frame when you can’t see what the camera is seeing — the livestream replaces the IDE stream when the dog is out and about so the human sending signals to the dog (i.e. with april tags, tennis ball, etc.) can make sure to get their hand actually seen by the camera, improving their ability to diagnose any issues with the dog seeing and/or reacting to certain triggers.<div class="indented"><figure id="4f6ba3fc-0354-4ed6-a796-82d72ac2508d"><div class="source"><a href="https://www.youtube.com/watch?v=gfF5fqVtqTI">https://www.youtube.com/watch?v=gfF5fqVtqTI</a></div><figcaption>Me trying for 2 minutes to get the april tags in frame…if the tags were in frame, an indicator LED would light up and could be seen in the reflection of the phone screen.</figcaption></figure><p id="eda86d1c-aa19-4083-a114-a428e43fe987" class="">
+</p></div></p><hr id="ac1b57dd-c5ae-4626-b5e9-a9289e45c722"/><hr id="525047bf-dffd-42f5-90aa-dbfc26532eb8"/><h1 id="44fcd01d-33af-4649-b170-217dd1533d8a" class="">🐕 Woody’s eyes are pretty cool…but what about the rest of his body?</h1><div id="630b4415-2abf-4ed5-bbe3-d6483dc9e2c5" class="column-list"><div id="6c7b2f0b-78c1-49de-8946-29cc926300d3" style="width:50%" class="column"><p id="98201552-b49e-4f31-8c02-36640e4c7098" class="">Well, I have my lovely teammates Rachel, Greg, Jacob, and David to thank for the majority of Woody’s existence.</p><hr id="d41faf52-b9fc-44f1-9018-2e35534bd6ee"/><p id="310661cf-4764-4810-a9b9-c1457c79d972" class="">For most of the time up to the last week, my four other teammates worked closely together on the main body of the dog while I developed the vision off to the side (occasionally popping in to give/ask for feedback). In the final week, we secured the camera onto the head and performed rough tests on the vision ➡️ brain communication to trigger leg movement. In the final push, we decided as a team to prioritize testing &amp; improving the strength &amp; stability of the robot while moving; therefore, we are currently working on final testing of EVERYTHING together to communicate from the camera ➡️ brain ➡️ legs to trigger movement.</p></div><div id="bea76cef-e0d1-4553-8305-78f8db026ee1" style="width:50%" class="column"><figure id="75aee169-e895-4bf5-8e92-301269ad863d" class="image"><a href="robot_dog_pics/Untitled%202.png"><img style="width:770px" src="robot_dog_pics/Untitled%202.png"/></a><figcaption>Woody (current state) posing for the camera</figcaption></figure></div></div><h2 id="8e3be510-2fb4-4d26-bfe4-8fc8ce607c7a" class="">A Brief &amp; Incomplete Timeline of Woody’s Life (Thus Far)</h2><figure id="e848d53b-e029-44aa-b271-1954cf6aa9c7" class="image"><a href="robot_dog_pics/image.png"><img src="robot_dog_pics/image.png"/></a><figcaption>Some key moments since the beginning of this project</figcaption></figure><p id="927d7fba-e32f-48f9-94a6-8c6bc0384a62" class="">
+</p><p id="5cca2444-7bf7-4842-a1e0-4cb84c368b2f" class="">Each teammate had a main part of the project to focus on, but in the end, we all chipped in a bit everywhere.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="b254daee-a3f3-41a0-9e1e-a7a3a0d86575"><div style="font-size:1.5em"><span class="icon">🐕</span></div><div style="width:100%">Check out the dropdowns to see more details on my teammates’ subsections!</div></figure><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">🧠 Brain — Jacob</summary><div class="indented"><p id="a601aa3d-0a18-447b-9c2d-be36b7f495f1" class="">With previous exposure to ROS, Jacob chose to communicate between all the elements of the dog (legs, camera, brain, etc.) using ROS nodes running on a RaspberryPi. In reality, the legs and camera were connected to the RaspberryPi over serial with UART communication, therefore ROS was truly only running on the Pi.</p><h3 id="dc03f1c1-3b42-4f3a-bdeb-17499877ed0e" class="">It took six terminals on the brain to run one robot!</h3><figure id="d9aca762-4396-4bc0-b8e9-d5cc9d3ce5d4" class="image"><a href="robot_dog_pics/Untitled%203.png"><img style="width:1340px" src="robot_dog_pics/Untitled%203.png"/></a><figcaption>The Nicla node OR the keyboard node publishes commands to ‘topic_actuate,’ and the two RP2040 nodes subscribe to that topic to determine leg movement. The camera servo node operates alone to control the head servo positions via GPIO pins on the RasPi.</figcaption></figure><p id="fceb735b-c484-471e-adbb-d486016520fe" class="">
+</p><p id="dec49710-6314-49b0-a044-a5ad72aae829" class="">While I worked to the side on vision to control the robot autonomously, Jacob implemented manual control with keyboard inputs (which simply take the place of a serial message from the camera).</p><figure id="887ecd17-3c88-4abd-996b-1f82a28ac773"><div class="source"><a href="https://youtu.be/fqAFdLbydDc">https://youtu.be/fqAFdLbydDc</a></div><figcaption>Woody walks forward after an ‘f’ input in the keyboard node</figcaption></figure><p id="31fc64f7-a1d8-4243-bf45-62bf504613f5" class="">Although Jacob and I originally planned to control two microservos to pan-tilt my camera directly from the Nicla camera board and I got the servos to run in testing, we determined the high current draw of the servos would put the camera board at risk of burning out. Therefore, Jacob created a servo node to manually control the position of the camera servos from his PC.</p><figure id="9892c364-3f49-4dde-a58b-e1f28254d10b"><div class="source"><a href="https://youtu.be/gz5IpHd0LCQ">https://youtu.be/gz5IpHd0LCQ</a></div></figure><p id="8cb57533-d7df-4e2a-8ccc-96f78100073a" class="">
+</p><p id="f6d6de2d-29ba-41c5-8c5f-2e0eff7ba680" class="">With ROS running smooth with a bit of time in the project left, Jacob took on improving our power management, calculating the necessary voltage based on current draw of all the servos, with a factor of safety of 3.</p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">🦿 Legs — David</summary><div class="indented"><p id="241ac1a7-605b-465a-952b-62459284873b" class="">Thanks to David, Woody learned how to walk. David designed forward step, backward step, and squat foot paths in MATLAB to visualize how different movements could be combined to make Woody walk &amp; dance.</p><figure id="32416879-e265-446f-9461-04c2e3188e24" class="image"><a href="robot_dog_pics/Untitled%204.png"><img style="width:1150px" src="robot_dog_pics/Untitled%204.png"/></a></figure><figure id="8ac82ef6-bab4-4510-9bef-27babd2e2642"><div class="source"><a href="robot_dog_pics/Dog_Leg_Animation.mp4">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ad85b24f-bc6a-4fab-ba2d-3be74064c0c0/Dog_Leg_Animation.mp4</a></div><figcaption>Forward step</figcaption></figure><p id="a3e0c49f-e1b2-4166-9f3a-5fc97ca42464" class="">
+</p><p id="c5869369-8d27-43b2-99dd-0ada1544e81a" class="">After finishing the MATLAB design, David tested sending his angles to the servo motors on each leg (without the brain at first, just using an RP2040 direct to a leg).</p><figure id="9dc062c1-ee2e-4db3-b74f-4a7f8f17c1bc" class="image"><a href="robot_dog_pics/Untitled%205.png"><img style="width:1440px" src="robot_dog_pics/Untitled%205.png"/></a></figure><p id="22cbd211-9ba3-4f9f-910e-c418ef5c2a3e" class="">
+</p><p id="8b924de1-a09c-4380-85bb-578d7101f600" class="">Finally, David modified the order &amp; timing in which angles are sent to each leg to improve the stability &amp; walking gait of the robot — he found that moving two legs on the diagonal would keep the robot’s center of gravity within the region of stability.</p><figure id="6ae54a49-3f1c-4a68-a834-c32049c2a65b"><div class="source"><a href="robot_dog_pics/IMG_7087.mov">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5adcd393-d32c-4c35-9ea5-25a0c82f8ed8/IMG_7087.mov</a></div><figcaption>Woody takes his first steps (in the air)!</figcaption></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">🔨 Fabrication — Rachel &amp; Greg</summary><div class="indented"><p id="1acbf1b6-18aa-4467-86cd-4f46660ca375" class="">All team members worked closely with Rachel &amp; Greg to iterate on laser-cut &amp; assembled physical components to ensure stability &amp; strength.</p><p id="239fad7f-267e-4d30-bf57-df6c6764dfa6" class="">
+</p><h2 id="c3c9842b-a075-47fd-a746-ac5de017a832" class="">Body &amp; Legs</h2><p id="0f48ed53-b6db-4705-8d3c-d04816759df0" class="">Greg worked mainly on the body of the robot and the legs. Here are the main iterations:</p><h3 id="118681d6-dea6-4e2e-99af-a8ad52f41d4e" class="">1) “Open” top, all wooden legs</h3><figure id="dfbb8374-9abb-4829-a83e-d5f52a6fd247" class="image"><a href="robot_dog_pics/Untitled%206.png"><img style="width:2000px" src="robot_dog_pics/Untitled%206.png"/></a></figure><h3 id="bd1a6f0c-9f2d-492b-87bd-d5dc79762d42" class="">2) “Closed” body with slots for ventilation, all wooden legs with thicker &amp; wider feet</h3><figure id="c8b3028a-ff50-482e-8123-b5ac391c0c69" class="image"><a href="robot_dog_pics/Untitled%207.png"><img style="width:2000px" src="robot_dog_pics/Untitled%207.png"/></a></figure><h3 id="e2873457-fe55-4662-aeef-4a810b3f42a7" class="">3) Same body as (2), with acrylic legs and same shape feet — more brittle, but stronger/more stable with servos</h3><figure id="5848b853-0d1e-42c1-bbad-b024eb42cc76" class="image"><a href="robot_dog_pics/Untitled%208.png"><img style="width:2000px" src="robot_dog_pics/Untitled%208.png"/></a></figure><p id="c3952fda-0266-454e-8bfc-4348fc9b5b0d" class="">
+</p><h2 id="dabe1c53-208b-4cae-ad9a-4a78187f6b31" class="">🤯 Head &amp; Neck Swivel</h2><p id="5016fed1-aead-47d2-afa1-902172ee52c2" class="">Rachel focused on designed the pan-tilt mechanism to mount the camera on to increase the range of vision of the dog. Since Chris encouraged us to make our robots with wood rather than plastic, Rachel designed a laser-cut assembly, instead of simply 3D printing a model.</p><ul id="6f7fa8d5-120b-4f4a-afaf-9ad54c9010b5" class="bulleted-list"><li style="list-style-type:disc">Increases possible range of view to scan surrounding environment (without needing to physically turn the whole dog body)</li></ul><ul id="6a8555dc-fcbf-4feb-a486-a15ac3aaeaed" class="bulleted-list"><li style="list-style-type:disc">Adds “liveliness” to dog to move head around as a real dog would in reaction to different things it sees</li></ul><figure id="57d32551-0b97-4abc-a432-b749801045e2" class="image"><a href="robot_dog_pics/Untitled%209.png"><img style="width:432px" src="robot_dog_pics/Untitled%209.png"/></a></figure></div></details><p id="346ccd18-5aab-4c9a-b0fa-8a9ffb00fd4a" class="">
+</p><hr id="90941ed7-97d9-4aa4-8849-4e0a3e6fd30a"/><hr id="25696275-7173-4aae-9a14-f057fc057951"/><h1 id="429388a5-d2ea-49bf-af87-295cb18b3aaa" class="">Reflection</h1><h2 id="240586eb-f290-4155-b6d5-3dded24bb7b1" class="">Challenges</h2><ul id="efd1d930-6411-4c85-bfff-405fdb61b7d6" class="bulleted-list"><li style="list-style-type:disc">identifying a tennis ball — it blends in with many backgrounds, is a common shape (circular), visual appearance changes drastically depending on lighting conditions</li></ul><ul id="4ce34d51-537b-49b3-935f-ef1f2124f82d" class="bulleted-list"><li style="list-style-type:disc">generally accurately detecting color in varying lighting conditions — could be remediated by algorithm to adjust color thresholds for input lighting, attaching external LED to robot dog head</li></ul><ul id="5ea6d702-e1f5-4f85-b1a4-ba144ea990d6" class="bulleted-list"><li style="list-style-type:disc">running livestream at same time as analyzing images on Nicla — perhaps could shift image processing over to the streamer, but then the Nicla performance relies on someone streaming at the moment</li></ul><ul id="d10644ec-e006-43be-b0a9-47fd0750945a" class="bulleted-list"><li style="list-style-type:disc">determining reasonable milestones for my part while it existed quite separately from the rest of the team’s tasks</li></ul><h2 id="a40e0ae4-e5da-4b35-a358-7883f6d8e730" class="">Lessons learned</h2><ul id="64e8f4a5-94ea-48ee-b59f-c7ab4a45d2ee" class="bulleted-list"><li style="list-style-type:disc">custom libraries are worth making if you’ve got a bunch of functions you’ve created/modified yourself to use!</li></ul><ul id="37a175ac-8b53-44ff-a849-1a0c9bf3ec01" class="bulleted-list"><li style="list-style-type:disc">how to comment code with enough detail but concisely to read quickly to pass along to a partner who needs to understand, but not heavily edit, the code</li></ul><ul id="fe5628a9-91eb-45f3-ba47-959b43878841" class="bulleted-list"><li style="list-style-type:disc">how to start acquiring a “good” dataset for ML (different backgrounds, minimal noise in images, variety of conditions of object to identify, at least 100 data points, pre-process/denoise BEFORE training model, etc.)</li></ul><ul id="21b829f5-84a1-42b2-8069-1db9359c4a6b" class="bulleted-list"><li style="list-style-type:disc">so much image processing — I was a mere Adobe Photoshop user before this project</li></ul><ul id="45758138-0a43-4549-81e6-199a56921738" class="bulleted-list"><li style="list-style-type:disc">deciding how long to struggle on something before asking for help, especially from a professor</li></ul><ul id="b8403409-4b5d-42c1-8f13-0e44ce94a7f8" class="bulleted-list"><li style="list-style-type:disc">my instinct with ML dataset ethics was right — my ML-expert friend who I talked to said my idea to delete pictures I found I’d taken with the tennis ball that had people’s faces I didn’t know in them was very ethical 🙂</li></ul><ul id="e6c653b8-2240-48ea-aaf0-b3f6d4da23c6" class="bulleted-list"><li style="list-style-type:disc">much more! (to come)</li></ul><h2 id="4f56240e-7f27-4592-96f6-950ed85def4d" class="">Areas of Improvement</h2><ul id="754fb415-3846-48c9-b93f-4efa38fa381a" class="bulleted-list"><li style="list-style-type:disc">learn more about RTSP and callbacks (and possibly asyncio?) to integrate livestream into current <a href="http://main.py">main.py</a> detection code</li></ul><ul id="4ffa1ff7-f8f0-4241-b152-4e15c01e4c08" class="bulleted-list"><li style="list-style-type:disc">implement current ML model from dataset I did collect — along with an improved dataset with wider variety of lighting conditions, different colored/dirtied/sized tennis balls (I trained the set on just the one my friend lent me for the last month 😅)</li></ul><ul id="25e99856-b912-49f2-9ac9-5ad83ae18350" class="bulleted-list"><li style="list-style-type:disc">do more background research on image processing as a field to apply general theory to my process — definitely could use more pre-processing before using OpenMV algorithms or sending the images to an ML model</li></ul><ul id="d2fa0071-d24a-4265-b45e-c3463bd1d7c8" class="bulleted-list"><li style="list-style-type:disc">implement object/line tracking to semi-autonomously direct robot around a course</li></ul><ul id="fcc32e66-069b-4e0e-926b-400b1424a555" class="bulleted-list"><li style="list-style-type:disc">…and more to add later 🙂</li></ul><p id="630ff6a4-67e1-456e-8568-561859befbed" class="">
+</p><hr id="8d84977f-0b36-4850-8683-9b6626ef1d21"/><hr id="d0854734-0ff9-40fd-86a4-50ab56f2857d"/><hr id="1010db54-7d5e-48bb-84b8-823cd12552a6"/><h1 id="4033c20f-bb8c-456f-8da0-da62ab83a72e" class="">😎 Other cool stuff I worked on (not used for final dogs, or works in progress)</h1><h2 id="e71df6e7-db68-4cf7-8999-b81e49cba31e" class="">🌐 MQTT</h2><p id="2e543c18-8993-4263-b930-cd86b0523583" class="">While my brain partner was working to get ROS running for the whole dog, I got MQTT working to ensure we had a “back-up” wifi-enabled communication method, especially since I am more familiar with MQTT and can then more easily/quickly debug communication with the camera. In the end, my brain partner figure out a way to run ROS over serial, so we worked together using an example from the OpenMV IDE to get serial communication over a regular micro-USB to USB-A cord working using virtual COM port (VCP) drivers. Since serial is faster and more reliable than MQTT, we implemented the USB VCP communication for the final dog.</p><h3 id="378a35b0-6e1b-4ea0-8c37-8e9da880860b" class="">📲 Camera publishes over phone Wi-Fi hotspot externally</h3><p id="b4687194-ee75-4a1d-b376-2a0e2d7d3959" class="">Now that I can publish MQTT message over a mobile phone hotspot from the camera running on external power (not connected to PC ➡️ “wireless” !), it is guaranteed that the robot dog’s eyes can reliably communicate with the brain in nearly any location, whether or not reliable router-based Wi-Fi is available. Powering the camera externally and running the code automatically is also an important step in ensuring that the eyes can run “wirelessly” from my computer so the dog will be free to roam without a leash 🙂.</p><figure id="1e01b640-4a42-4352-bcbf-b8b45f623f81"><div class="source"><a href="https://www.youtube.com/watch?v=JYJRJ4vy1Es">https://www.youtube.com/watch?v=JYJRJ4vy1Es</a></div></figure><h3 id="f383502c-2e1d-488c-9546-6d81c77b0790" class="">Nicla publishes, PC subscribes (connected to OpenMV IDE)</h3><figure id="81433f15-9c81-4c30-95bf-58d521e3e4f8"><div class="source"><a href="https://www.youtube.com/watch?v=ZKw9jwiEEjY">https://www.youtube.com/watch?v=ZKw9jwiEEjY</a></div></figure><p id="5342ecf8-4f8b-4b21-ad9c-2171a21a3a98" class="">
+</p><h2 id="90110e49-217f-4bf8-bc38-3e35fd046182" class="">🚧 💻 Machine Learning Image Classification with Edge Impulse</h2><p id="d2910e42-2444-4595-8e89-2e0420726080" class="">Thanks to <a href="https://docs.arduino.cc/tutorials/nicla-vision/image-classification">a tutorial from Arduino and Edge Impulse</a>, I found a nice entryway to trying machine learning — but guided and code-free 🙂.</p><ul id="9d4cef91-11a1-4e1e-bb1f-7a444ad1ddff" class="toggle"><li><details open=""><summary>Attempt 1 — only 40 pictures, lol</summary><ul id="ac130243-9c35-45df-8a8f-c84ed677c783" class="bulleted-list"><li style="list-style-type:disc">not enough data, let’s try again</li></ul><ul id="ea3d95ed-f5f9-4b37-a6ca-0defed8469b2" class="bulleted-list"><li style="list-style-type:disc">but some clustering evident</li></ul></details></li></ul><ul id="c9ddea33-761d-44e6-ba40-a6fdc6010457" class="toggle"><li><details open=""><summary>Attempt 2 — me35_robotdog_tennisball — I already strayed from the tutorial b/c I got advice from my data science roommate, and still unsure about the tutorial b/c the actual Edge Impulse site is suggesting object detection and framing rather than transfer learning</summary><ul id="c606fcae-caf3-45e6-8524-ad7797c57618" class="bulleted-list"><li style="list-style-type:disc">not linearly fit, but testing performed about 90% accurate!</li></ul><ul id="e0488f58-c2a4-4381-8960-b7b5ca862f2c" class="bulleted-list"><li style="list-style-type:disc">still figuring out what everything means</li></ul><ul id="a5fc8832-a238-414e-9c15-f7018b84d009" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">add screenshots (but also can just go to this project on the site)</span><div class="indented"></div></li></ul></details></li></ul><ul id="08f323b0-79e1-4cd2-81fe-a3a03a2a6f27" class="toggle"><li><details open=""><summary>Attempt 3 — actually follow the tutorial b/c I’m worried the last one won’t fit on the board…I’m still experiem</summary></details></li></ul><p id="d84c4da8-eb93-4291-9e78-0075fdd83fe2" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="e411db36-90a0-4408-8fd7-30857aaa5f0f"><div style="font-size:1.5em"><span class="icon">🙏🏻</span></div><div style="width:100%"><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Special thanks to:<br/><br/></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>- Chris, Milan, and Mohammed for such a great class!<br/>- Caroline &amp; Matt for your generosity &amp; expertise<br/>- my groupmates Jacob, Rachel, Greg, and David<br/>- all of my classmates!<br/>- my housemates for lending me a tennis ball, providing ML advice, and checking in on me during the late hours at Nolop 🙂<br/></div></figure><p id="3ef552fe-2e51-4fe2-9990-d8e807b690c5" class="">
+</p><h2 id="e39a12dd-3c6c-42a9-b9ab-ba862364b492" class="">🤯 Head Swivel Powered By Nicla Board</h2><div id="d902421e-1fd7-4639-a7de-9e50440ecc0f" class="column-list"><div id="c98a2736-fc32-4b7a-a4bd-b2e11774f547" style="width:50%" class="column"><p id="36be0415-aff4-4ffe-9742-b8c4cc893e23" class="">For my original head swivel prototype, I <strong><strong><strong><strong><strong><strong>programmed &amp; powered the servos from the Nicla.</strong></strong></strong></strong></strong></strong> I wanted to make sure I could operate the servos inside of the “eyes” unit before investigating running the servos from the brain (especially since my brain partner was busy working on his own tasks). Eventually, we decided that powering the servos from the Nicla was too risky due to the excessive current draw from the servos compared to the capacity of the Nicla pins, and switched over to powering &amp; manually controlling the servo movement from the brain (RaspberryPi), which had plenty of power left to give and could much more simply control the servos (the Nicla can’t run the Servo class, so was necessary to program the servos with PWM).</p></div><div id="97a2176c-0fe3-4ab1-9434-e55fbba70e56" style="width:50%" class="column"><figure id="8ce98cfa-91fe-4b21-8d94-b504de43839c"><div class="source"><a href="https://www.youtube.com/watch?v=4yWOmzgJBWE">https://www.youtube.com/watch?v=4yWOmzgJBWE</a></div></figure></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
