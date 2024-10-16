@@ -15,268 +15,346 @@ href is link I want button to lead to
 ~~~ tab to section on page "#section" ~~~
 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>
 ~~~ tab direct to link (NO section on page) ~~~
-<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="assets/resume/RoseKitz_TuftsBSME2024_Resume_1.5.24.pdf" target="_blank">Resume</a></li>
+<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="assets/resume/Rose_Kitz_Resume_2024.pdf" target="_blank">Resume</a></li>
+
+to do
+- clean up -- there's gotta be a way to make functions to consolidate this, esp. repeated stuff like the cards
 
 -->
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Rose Kitz Portfolio</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
 
-        <style>
-          .highlighted-word-dark {
-            background-color: #2c3e50 !important; /*bg-secondary (couldn't figure out how to just write that :/) */
-            color: #fff !important;/*text-white*/
-            border-radius: 0.2rem !important;/*~rounded*/
-            padding: 0.2rem !important;/*p-2*/
-          }
-          .highlighted-word-white {
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Rose Kitz Portfolio</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <style>
+        .highlighted-word-dark {
+            background-color: #2c3e50 !important;
+            /*bg-secondary (couldn't figure out how to just write that :/) */
+            color: #fff !important;
+            /*text-white*/
+            border-radius: 0.2rem !important;
+            /*~rounded*/
+            padding: 0.2rem !important;
+            /*p-2*/
+        }
+
+        .highlighted-word-white {
             background-color: white !important;
             color: #2c3e50 !important;
-            border-radius: 0.2rem !important;/*~rounded*/
-            padding: 0.2rem !important;/*p-2*/
-          }
-          .highlighted-header-dark {
-            margin-bottom: 0.5rem !important; /*mb-2*/
-            background-color: #2c3e50 !important;/*same color as secondary text, not bg-secondary for now that's a little lighter*/
+            border-radius: 0.2rem !important;
+            /*~rounded*/
+            padding: 0.2rem !important;
+            /*p-2*/
+        }
+
+        .highlighted-header-dark {
+            margin-bottom: 0.5rem !important;
+            /*mb-2*/
+            background-color: #2c3e50 !important;
+            /*same color as secondary text, not bg-secondary for now that's a little lighter*/
             color: #fff !important;
-            border-radius: 0.5rem !important; /*rounded*/
-            display: inline-block !important; /*d-inline-block*/
-            padding: 0.5rem !important;/*p-2*/
-          }
-        </style>
-    </head>
-  
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">Rose Kitz</a>
-                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="assets/resume/RoseKitz_TuftsBSME2024_Resume_1.5.24.pdf" target="_blank">Resume</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-      
-        <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Image-->
-                <img class="masthead-avatar img-white-border mb-5" src="assets/img/rose_portraits/rose_formal.jpg" alt="Portrait image of Rose Kitz" />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Rose Kitz</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-palette"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Mechanical Engineer / STEM Educator / Graphic Designer</p>
-            </div>
-        </header>
-      
-        <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="portfolio">
-            <div class="container">
-                <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-route"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Grid Items-->
-                <div class="row justify-content-center">
+            border-radius: 0.5rem !important;
+            /*rounded*/
+            display: inline-block !important;
+            /*d-inline-block*/
+            padding: 0.5rem !important;
+            /*p-2*/
+        }
+    </style>
+</head>
 
-                  <!-- Portfolio Item 9: Mechanical Can-to-Art Machine-->
-                  <div class="col-md-6 col-lg-4 mb-5">
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Rose Kitz</a>
+            <button
+                class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
+                type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="#about">About</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="#contact">Contact</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="assets/resume/Rose_Kitz_Resume_2024.pdf" target="_blank">Resume</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Masthead-->
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Image-->
+            <img class="masthead-avatar img-white-border mb-5" src="assets/img/rose_portraits/grad_gown_cropped.jpg"
+                alt="Portrait image of Rose Kitz" />
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading text-uppercase mb-0">Rose Kitz</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-palette"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+            <p class="masthead-subheading font-weight-light mb-0">Musical Instrument Maker / DSP & Acoustics Explorer /
+                Mechanical Engineer / STEM Educator</p>
+        </div>
+    </header>
+
+    <!-- Portfolio Section-->
+    <section class="page-section portfolio" id="portfolio">
+        <div class="container">
+            <!-- Portfolio Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-route"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Portfolio Grid Items-->
+            <div class="row justify-content-center">
+
+                <!-- Portfolio Item 9: Brass Soprano Trombone-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <h3 class="text-center">Brass Soprano Trombone</h3>
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal9">
+                        <div
+                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                    class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="assets/img/portfolio/trombone/trombone_card.png"
+                            alt="homemade brass soprano trombone with colored background" />
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 8: Mechanical Can-to-Art Machine-->
+                <div class="col-md-6 col-lg-4 mb-5">
                     <h3 class="text-center">Mechanical Can-to-Art Machine</h3>
-                      <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal9">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                              </div>
-                          </div>
-                          <img class="img-fluid" src="assets/img/portfolio/can-to-art_machine/can-to-art-machine-card.png" alt="mechanical can-to-art-machine with colored background" />
-                      </div>
-                  </div>
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal8">
+                        <div
+                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                    class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="assets/img/portfolio/can-to-art_machine/can-to-art-machine-card.png"
+                            alt="mechanical can-to-art-machine with colored background" />
+                    </div>
+                </div>
 
-                  <!-- Portfolio Item 8: Electronic Musical Instrument-->
-                  <div class="col-md-6 col-lg-4 mb-5">
+                <!-- Portfolio Item 7: Electronic Musical Instrument-->
+                <div class="col-md-6 col-lg-4 mb-5">
                     <h3 class="text-center">Electronic Musical Instrument</h3>
-                      <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal8">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                              </div>
-                          </div>
-                          <img class="img-fluid" src="assets/img/portfolio/electronic_instrument/electronic-instrument-card.png" alt="Electronic musical instrument (The Sledgehammer Kablammer) in guitar-style position with colored background." />
-                      </div>
-                  </div>
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal7">
+                        <div
+                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                    class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid"
+                            src="assets/img/portfolio/electronic_instrument/electronic-instrument-card.png"
+                            alt="Electronic musical instrument (The Sledgehammer Kablammer) in guitar-style position with colored background." />
+                    </div>
+                </div>
 
-                  <!-- Portfolio Item 7: Autonomous Robot Dog: Vision-->
-                  <div class="col-md-6 col-lg-4 mb-5">
+                <!-- Portfolio Item 6: Autonomous Robot Dog: Vision-->
+                <div class="col-md-6 col-lg-4 mb-5">
                     <h3 class="text-center">Autonomous Robot Dog: Vision</h3>
-                      <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal7">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                              </div>
-                          </div>
-                          <img class="img-fluid" src="assets/img/portfolio/robot_dog/robot-dog-card.png" alt="[to add dog pic]" />
-                      </div>
-                  </div>
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
+                        <div
+                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                    class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="assets/img/portfolio/robot_dog/robot-dog-card.png"
+                            alt="[to add dog pic]" />
+                    </div>
+                </div>
 
-                  <!-- Portfolio Item 6: Raspberry Pi Driving Robot-->
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <h3 class="text-center">Raspberry Pi Driving Robot</h3>
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                                </div>
+                <!-- Portfolio Item 5: Raspberry Pi Driving Robot-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <h3 class="text-center">Raspberry Pi Driving Robot</h3>
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
+                        <div
+                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                    class="fas fa-plus fa-3x"></i>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/raspberry_pi_driving_robot/driving-robot-card.png" alt="Graphic of Raspberry Pi Driving Robot" />
                         </div>
+                        <img class="img-fluid"
+                            src="assets/img/portfolio/raspberry_pi_driving_robot/driving-robot-card.png"
+                            alt="Graphic of Raspberry Pi Driving Robot" />
                     </div>
+                </div>
 
-                  <!-- Portfolio Item 5: Electromechanical Golf Game-->
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <h3 class="text-center">Electromechanical Golf Game</h3>
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                                </div>
+                <!-- Portfolio Item 4: Electromechanical Golf Game-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <h3 class="text-center">Electromechanical Golf Game</h3>
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+                        <div
+                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                    class="fas fa-plus fa-3x"></i>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/electromech_game/electromech-game-card.png" alt="Electromechanical Game: Merry-Go-Golf" />
                         </div>
+                        <img class="img-fluid" src="assets/img/portfolio/electromech_game/electromech-game-card.png"
+                            alt="Electromechanical Game: Merry-Go-Golf" />
                     </div>
+                </div>
 
-                  <!-- Portfolio Item 4: PCBs (H-Bridge, Power Supply)-->
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <h3 class="text-center">PCBs (H-Bridge, Power Supply)</h3>
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                                </div>
+                <!-- Portfolio Item 3: PCBs (H-Bridge, Power Supply)-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <h3 class="text-center">PCBs (H-Bridge, Power Supply)</h3>
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
+                        <div
+                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                    class="fas fa-plus fa-3x"></i>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/pcbs/p2-hbridge.png" alt="Image of 3D-Rendered H-Bridge PCB" />
                         </div>
+                        <img class="img-fluid" src="assets/img/portfolio/pcbs/p2-hbridge.png"
+                            alt="Image of 3D-Rendered H-Bridge PCB" />
                     </div>
+                </div>
 
-                  <!-- Portfolio Item 3: SPIKE Prime Xylophone Player-->
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <h3 class="text-center">SPIKE Prime Xylophone Player</h3>
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                                </div>
+                <!-- Portfolio Item 2: SPIKE Prime Xylophone Player-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <h3 class="text-center">SPIKE Prime Xylophone Player</h3>
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+                        <div
+                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                    class="fas fa-plus fa-3x"></i>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/xylophone_player/xylophone-player-card.png" alt="The Xylophone Player" />
                         </div>
+                        <img class="img-fluid" src="assets/img/portfolio/xylophone_player/xylophone-player-card.png"
+                            alt="The Xylophone Player" />
                     </div>
-                  
-                  <!-- Portfolio Item 2: SPIKE Prime Walking Robot-->
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <h3 class="text-center">SPIKE Prime Walking Robot</h3>
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                                </div>
+                </div>
+
+                <!-- Portfolio Item 1: SPIKE Prime Walking Robot-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <h3 class="text-center">SPIKE Prime Walking Robot</h3>
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                        <div
+                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                            <div class="portfolio-item-caption-content text-center text-white"><i
+                                    class="fas fa-plus fa-3x"></i>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/spike_prime_walking_robot/silly-walks-card.png" alt="Silly Walks Robot" />
                         </div>
-                    
+                        <img class="img-fluid" src="assets/img/portfolio/spike_prime_walking_robot/silly-walks-card.png"
+                            alt="Silly Walks Robot" />
                     </div>
-                  
-                  <!-- Portfolio Item 1: Station Wagon Graphic Design-->
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <h3 class="text-center">Station Wagon Graphic Design</h3>
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/station_wagon/station-wagon-card.png" alt="Retro Station Wagon Graphic Design" />
-                        </div>
-                    </div>
+                </div>  
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section-->
+    <section class="page-section bg-primary text-white mb-0" id="about">
+        <div class="container">
+            <!-- About Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-hammer"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- About Section Content-->
+            <div class="row text-secondary">
+                <div class="col-lg-4 mr-auto">
+                    <h2 class="highlighted-header-dark">Hi! I'm Rose :)</h2>
+                    <p class="lead">I just graduated from Tufts University, majoring in
+                        Mechanical Engineering with a minor in Music Engineering, focused on acoustic instrument design
+                        (<a class="highlighted-word-dark"
+                            href="https://rosekitz.notion.site/Designing-a-Soprano-Trombone-45aa49eda9394bf988437856f9eeda72?pvs=4"
+                            target="_blank">check out</a> the trombone I designed & built this past semester!).</p>
+                    <p class="lead">Throughout college, as a <strong>creative</strong> student, welcoming staff member
+                        at Tufts' <strong>community makerspace</strong>, and <strong>year-round varsity captain</strong>
+                        of the cross country and track & field teams, I was constantly adapting, balancing,
+                        <strong>compromising, and communicating</strong> with others to engender a sense of
+                        <strong>community & improvement</strong> in every facet of life.
+                    </p>
+                </div>
+                <div class="col-lg-4 ml-auto">
+                    <img class="img-fluid img-white-border rounded mb-5" src="assets/img/rose_portraits/rose_fun.jpg"
+                        alt="Portrait image of Rose Kitz" />
+                </div>
+                <div class="col-lg-4 mr-auto">
+                    <p class="lead">I spend my time <strong>tinkering with found materials</strong>, exploring access to
+                        design for creators & users, and figuring out how to effectively & joyfully communicate about
+                        engineering concepts. You can also find me staring at ceilings, listening to walls, and clapping
+                        at random (I'm <strong>insatiably curious how and why things sound the way they do</strong>).
+                    </p>
+                    <p class="lead">I believe that <strong>everyone is an expert</strong> -- of their own experience --
+                        and it is therefore imperative, as an engineer myself, to seek out, listen to, and
+                        <strong>embrace others' perspectives</strong> in the design process. Everyone has a seat at the
+                        table -- and in every moment back to the drawing board.
+                    </p>
                 </div>
             </div>
-        </section>
-
-        <!-- About Section-->
-        <section class="page-section bg-primary text-white mb-0" id="about">
-            <div class="container">
-                <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-hammer"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- About Section Content-->
-                <div class="row text-secondary">
-                    <div class="col-lg-4 mr-auto">
-                      <h2 class="highlighted-header-dark">Hi! I'm Rose :)</h2>
-                      <p class="lead">I am a senior at Tufts University majoring in Mechanical Engineering with a minor in Music Engineering, focused on acoustic instrument design (<a class="highlighted-word-dark" href="https://rosekitz.notion.site/Designing-a-Soprano-Trombone-45aa49eda9394bf988437856f9eeda72?pvs=4" target="_blank">check out</a> the trombone I'm designing & building right now!).</p>
-                      <p class="lead">As a <strong>creative</strong> student, welcoming staff member at Tufts' <strong>community makerspace</strong>, and <strong>year-round varsity captain</strong> of the cross country and track & field teams, I am constantly adapting, balancing, <strong>compromising, and communicating</strong> with others to engender a sense of <strong>community & improvement</strong> in every facet of life.</p></div>
-                    <div class="col-lg-4 ml-auto">
-                    <img class="img-fluid img-white-border rounded mb-5" src="assets/img/rose_portraits/rose_fun.jpg" alt="Portrait image of Rose Kitz" />
-                    </div>
-                    <div class="col-lg-4 mr-auto">
-                      <p class="lead">I spend my time <strong>tinkering with found materials</strong>, exploring access to design for creators & users, and figuring out how to effectively & joyfully communicate about engineering concepts. </p>
-                      <p class="lead">I believe that <strong>everyone is an expert</strong> -- of their own experience -- and it is therefore imperative, as an engineer myself, to seek out, listen to, and <strong>embrace others' perspectives</strong> in the design process. Everyone has a seat at the table -- and in every moment back to the drawing board.</p></div>
-                </div>
-                <!--<p class="highlighted-word-dark">I am eager to join an <strong>interdisciplinary</strong>, forward-thinking, user-focused team to make something cool that improves people's everyday lives.</p>
+            <!--<p class="highlighted-word-dark">I am eager to join an <strong>interdisciplinary</strong>, forward-thinking, user-focused team to make something cool that improves people's everyday lives.</p>
                 EDIT THIS! WHAT I'M LOOKING FOR IN WORK :) -->
-                
-                <!-- About Section Button-->
-                <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-dark" href="assets/resume/RoseKitz_TuftsBSME2024_Resume_1.5.24.pdf" target="_blank">
-                        <i class="fas fa-download mr-2"></i>
-                        Download My Resume!
-                    </a>
-                </div>
+
+            <!-- About Section Button-->
+            <div class="text-center mt-4">
+                <a class="btn btn-xl btn-outline-dark" href="assets/resume/Rose_Kitz_Resume_2024.pdf"
+                    target="_blank">
+                    <i class="fas fa-download mr-2"></i>
+                    Download My Resume!
+                </a>
             </div>
-        </section>
-      
-        <!-- Contact Section-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-handshake"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <p class="text-center text-secondary mb-0">rose.kitz@tufts.edu<br><br>Please reach out if you'd like to learn more about me/my projects/background, I would love to hear from you, and am eager to join a creative & collaborative team post-graduation in May 2024!</p>
-                <!-- Contact Section Form-->
-                <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                <!--COMMENTED OUT CONTACT FORM FOR NOW, NOT SURE IF WANT TO USE, PUTTING MY CONTACT INFO FOR NOW.-->
-                <!--
+        </div>
+    </section>
+
+    <!-- Contact Section-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <!-- Contact Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-handshake"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <p class="text-center text-secondary mb-0">rose.c.kitz@gmail.com<br><br>Please reach out if you'd like to
+                learn more about me/my projects/background, I would love to hear from you :)</p>
+            <!-- Contact Section Form-->
+            <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
+            <!--COMMENTED OUT CONTACT FORM FOR NOW, NOT SURE IF WANT TO USE, PUTTING MY CONTACT INFO FOR NOW.-->
+            <!--
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
 
@@ -315,86 +393,104 @@ href is link I want button to lead to
                         </form>
                     </div>
                 </div>-->
-            </div>
-        </section>
-      
-        <!-- Footer-->
-        <footer class="footer text-center">
-            <div class="container">
-                <div class="row">
-                    <!-- Footer Location-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Location</h4>
-                        <p class="lead mb-0">
-                            Tufts University
-                            <br />
-                            Medford, MA
-                        </p>
-                    </div>
-                    <!-- Footer Social Icons-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Around the Web</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/rose-kitz-3babb319a" target="_blank"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.youtube.com/channel/UCM5w-fExdh0J2LzX1rLADqA" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/r-kitz" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-                    <!-- Footer About Text-->
-                    <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Me</h4>
-                        <p class="lead mb-0">
-                            Thoughtful and creative engineer seeking to learn from, help, and educate others along the way.
-                            <a href="assets/resume/RoseKitz_TuftsBSME2024_Resume_1.5.24.pdf" target="_blank">Download my resume</a>
-                            .
-                        </p>
-                    </div>
+        </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Currently...</h4>
+                    <p class="lead mb-0">
+                        Engineering electroacoustic/audio testing software @ Listen, Inc.
+                        <br />
+                        Boston, MA
+                    </p>
+                </div>
+                <!-- Footer Social Icons-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Around the Web</h4>
+                    <a class="btn btn-outline-light btn-social mx-1"
+                        href="https://www.linkedin.com/in/rose-kitz-3babb319a" target="_blank"><i
+                            class="fab fa-fw fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-light btn-social mx-1"
+                        href="https://www.youtube.com/channel/UCM5w-fExdh0J2LzX1rLADqA" target="_blank"><i
+                            class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/r-kitz" target="_blank"><i
+                            class="fab fa-github"></i></a>
+                </div>
+                <!-- Footer About Text-->
+                <div class="col-lg-4">
+                    <h4 class="text-uppercase mb-4">About Me</h4>
+                    <p class="lead mb-0">
+                        Thoughtful and creative engineer seeking to learn from, help, and educate others along the way.
+                        <a href="assets/resume/Rose_Kitz_Resume_2024.pdf" target="_blank">Download my
+                            resume</a>
+                        .
+                    </p>
                 </div>
             </div>
-        </footer>
-      
-        <!-- Copyright Section-->
-        <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Contact me at rose.kitz@tufts.edu. Website evolved from a Bootstrap template, learning HTML/CSS/JS as I go :).</small></div>
         </div>
-        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
-        <div class="scroll-to-top d-lg-none position-fixed">
-            <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
-        </div>
+    </footer>
 
-<!----------------------------------------------------------------------------------------------------------------------------->
-      
-        <!-- Portfolio Modals-->
+    <!-- Copyright Section-->
+    <div class="copyright py-4 text-center text-white">
+        <div class="container"><small>Contact me at rose.c.kitz@gmail.com. Website evolved from a Bootstrap template,
+                learning HTML/CSS/JS as I go :).</small></div>
+    </div>
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+    <div class="scroll-to-top d-lg-none position-fixed">
+        <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i
+                class="fa fa-chevron-up"></i></a>
+    </div>
 
-        <!-- Portfolio Modal 9: Mechanical Can-to-Art Machine-->
-        <div class="portfolio-modal modal fade" id="portfolioModal9" tabindex="-1" role="dialog" aria-labelledby="portfolioModal9Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                    </button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal9Label">Mechanical Can-to-Art Machine</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-stamp"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Video-->
-                                    <iframe width="640" height="360" src="https://www.youtube.com/embed/jmXSOguiztE" title="UnCanIt! Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="UnCanIt! Video"></iframe>
-                                    <!-- Portfolio Modal - Text-->
-                                  <h3>Turn your cool brewery can into a pocketable art piece in just two cranks!</h3>
-                                  <ul>
-                                    <li>From-scratch design & fabrication of <strong>modular 3-in-1 clamping, blanking, and embossing mechanism</strong> to punch out brewery-logo design from aluminum can sheet, integrated with <strong>100% mechanically powered</strong>, high-force arbor press</li>
-                                    <li>Focused on blanking & embossing mechanism with sub-team partner Julia Divan, <strong>consulting with professors in machine, product, and fabrication design</strong></li>
-                                    <li>Designed, prototyped, and tested system over a semester working with <strong>three fellow senior mechanical engineers and real-world client</strong> Sydney Ladner</li>
-                                  </ul>
-                                  
-                                    <!-- Portfolio Modal - Images-->
-                                    <!-- commenting out for now (need to go to bed) add pics and process blurb later
+    <!----------------------------------------------------------------------------------------------------------------------------->
+
+    <!-- Portfolio Modals-->
+
+    <!-- Portfolio Modal 9: Brass Soprano Trombone -->
+    <div class="portfolio-modal modal fade" id="portfolioModal9" tabindex="-1" role="dialog"
+        aria-labelledby="portfolioModal9Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0"
+                                    id="portfolioModal9Label">Brass Soprano Trombone</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-music"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+
+                                <!-- Portfolio Modal - Video-->
+                                <iframe width="640" height="360" src="https://www.youtube.com/embed/8DIT9Guf7IU"
+                                    title="The Slide Bugle | Final Performance | Rose Kitz, Tufts University, Spring 2024" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen alt="The Slide Bugle | Final Performance | Rose Kitz, Tufts University, Spring 2024"></iframe>
+                                <!-- Portfolio Modal - Text-->
+                                <h3>I designed, built, tested, wrote a piece for, and learned how to play this soprano trombone, all in one semester.</h3>
+                                <ul>
+
+                                    <li>Sourced & budgeted materials (for <$140), based on extensive brass manufacturing processes research</li>
+                                    <li>Scheduled trainings and sought advice from metalworking, acoustics, brass-playing, and fabrication experts, <strong>rapidly transforming from a novice</strong> to deliver a functional & beautiful soprano trombone </li>
+                                    <li>Designed & fabricated all custom tooling to <strong>maximize learning and minimize cost</strong>, absorbing all the tricks of the trade from machinists, professional woodworkers, and jewlery artists
+                                    </li>
+                                    <li>Iterated from a bell, to a slide bugle, and eventually the full trombone, to stay on track with <strong>“functional instrument” goal</strong>
+                                    </li>
+                                </ul>
+
+                                <!-- Portfolio Modal - Images-->
+                                <!-- commenting out for now (need to go to bed) add pics and process blurb later
                                     <div class="row">
                                       <div class="column"> need to figure out how to have diff. tables w/ diff. column widths b/c I declared .column to have width: 50% in the .css file, but for here I need 33%
                                         <img class="rounded mb-5" src="assets/img/portfolio/spike_prime_walking_robot/silly-walks-leftside.jpg" alt="Image of left side of Silly Walks robot (featuring leg gear chain)" style="width:100%">
@@ -406,458 +502,667 @@ href is link I want button to lead to
                                         <img class="rounded mb-5" src="assets/img/portfolio/electromech_game/electromech-game-frontside.jpg" alt="Image of front-side of assembled electromechanical game." style="width:100%">
                                       </div>
                                   -->
-                              
-                                      <a class="btn btn-xl btn-outline-dark" href="https://tufts.app.box.com/embed/s/igu53wo9eke56rchkl5axp9z3h9w7lip?sortColumn=date" target="_blank">
-                                          <i class="fas fa-external-link-alt mr-2"></i>
-                                            Checkout my team's full report!
-                                      </a>
 
-                                    <!-- box embed...but takes way too long to load so not using for now -->
-                                    <!--
+                                <a class="btn btn-xl btn-outline-dark"
+                                    href="https://rosekitz.notion.site/The-Slide-Bugle-A-Journey-ad0ba4e7d9754ff39fd78c889b76fcd8"
+                                    target="_blank">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    Checkout my full design & process!
+                                </a>
+
+                                <!-- box embed...but takes way too long to load so not using for now -->
+                                <!--
                                     <iframe src="https://tufts.app.box.com/embed/s/igu53wo9eke56rchkl5axp9z3h9w7lip?sortColumn=date" width=100% height=800 frameborder="0" allowfullscreen webkitallowfullscreen msallowfullscreen></iframe>
                                     -->
-                                    <br><br>
-                                    <button class="btn btn-primary" data-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                  
+                                <br><br>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 8: Mechanical Can-to-Art Machine-->
+    <div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog"
+        aria-labelledby="portfolioModal8Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0"
+                                    id="portfolioModal8Label">Mechanical Can-to-Art Machine</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-stamp"></i></div>
+                                    <div class="divider-custom-line"></div>
                                 </div>
+                                <!-- Portfolio Modal - Video-->
+                                <iframe width="640" height="360" src="https://www.youtube.com/embed/jmXSOguiztE"
+                                    title="UnCanIt! Video" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen alt="UnCanIt! Video"></iframe>
+                                <!-- Portfolio Modal - Text-->
+                                <h3>Turn your cool brewery can into a pocketable art piece in just two cranks!</h3>
+                                <ul>
+                                    <li>From-scratch design & fabrication of <strong>modular 3-in-1 clamping, blanking,
+                                            and embossing mechanism</strong> to punch out brewery-logo design from
+                                        aluminum can sheet, integrated with <strong>100% mechanically powered</strong>,
+                                        high-force arbor press</li>
+                                    <li>Focused on blanking & embossing mechanism with sub-team partner Julia Divan,
+                                        <strong>consulting with professors in machine, product, and fabrication
+                                            design</strong>
+                                    </li>
+                                    <li>Designed, prototyped, and tested system over a semester working with
+                                        <strong>three fellow senior mechanical engineers and real-world client</strong>
+                                        Sydney Ladner
+                                    </li>
+                                </ul>
+
+                                <!-- Portfolio Modal - Images-->
+                                <!-- commenting out for now (need to go to bed) add pics and process blurb later
+                                    <div class="row">
+                                      <div class="column"> need to figure out how to have diff. tables w/ diff. column widths b/c I declared .column to have width: 50% in the .css file, but for here I need 33%
+                                        <img class="rounded mb-5" src="assets/img/portfolio/spike_prime_walking_robot/silly-walks-leftside.jpg" alt="Image of left side of Silly Walks robot (featuring leg gear chain)" style="width:100%">
+                                      </div>
+                                      <div class="column">
+                                        <img class="rounded mb-5" src="assets/img/portfolio/electromech_game/electromech-game-onshape-assembly.png" alt="Image of OnShape CAD model of fabricated parts." style="width:100%">
+                                      </div>
+                                      <div class="column">
+                                        <img class="rounded mb-5" src="assets/img/portfolio/electromech_game/electromech-game-frontside.jpg" alt="Image of front-side of assembled electromechanical game." style="width:100%">
+                                      </div>
+                                  -->
+
+                                <a class="btn btn-xl btn-outline-dark"
+                                    href="https://tufts.app.box.com/embed/s/igu53wo9eke56rchkl5axp9z3h9w7lip?sortColumn=date"
+                                    target="_blank">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    Checkout my team's full report!
+                                </a>
+
+                                <!-- box embed...but takes way too long to load so not using for now -->
+                                <!--
+                                    <iframe src="https://tufts.app.box.com/embed/s/igu53wo9eke56rchkl5axp9z3h9w7lip?sortColumn=date" width=100% height=800 frameborder="0" allowfullscreen webkitallowfullscreen msallowfullscreen></iframe>
+                                    -->
+                                <br><br>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Portfolio Modal 8: Electronic Musical Instrument-->
-        <div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-labelledby="portfolioModal8Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                    </button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal8Label">Electronic Musical Instrument</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-guitar"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    
-                                    <!-- Portfolio Modal - Text-->
-                                  <h3>The Sledgehammer Kablammer</h3>
-                                    </div>
-                            </div>
+    <!-- Portfolio Modal 7: Electronic Musical Instrument-->
+    <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog"
+        aria-labelledby="portfolioModal7Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0"
+                                    id="portfolioModal7Label">Electronic Musical Instrument</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-guitar"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
 
-                                  <p class="highlighted-word-dark"> Featured on the <a href="https://now.tufts.edu/2024/01/26/students-put-inventive-spin-electronic-musical-instrument-design" target="_blank">home page of Tufts Now</a> for our inventive & interdisciplinary work!</p>
-                          
-                            <div class="row justify-content-center embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="assets/img/portfolio/electronic_instrument/electronic_instrument_notion-html-export.html" title="Electronic Musical Instrument"></iframe>
+                                <!-- Portfolio Modal - Text-->
+                                <h3>The Sledgehammer Kablammer</h3>
                             </div>
-                          
-                            <div class="row justify-content-center">
-                              <button class="btn btn-primary" data-dismiss="modal">
-                                  <i class="fas fa-times fa-fw"></i>
-                                  Close Window
-                              </button>
-                            </div>
+                        </div>
+
+                        <p class="highlighted-word-dark"> Featured on the <a
+                                href="https://now.tufts.edu/2024/01/26/students-put-inventive-spin-electronic-musical-instrument-design"
+                                target="_blank">home page of Tufts Now</a> for our inventive & interdisciplinary work!
+                        </p>
+
+                        <div class="row justify-content-center embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item"
+                                src="assets/img/portfolio/electronic_instrument/electronic_instrument_notion-html-export.html"
+                                title="Electronic Musical Instrument"></iframe>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <button class="btn btn-primary" data-dismiss="modal">
+                                <i class="fas fa-times fa-fw"></i>
+                                Close Window
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Portfolio Modal 7: Autonomous Robot Dog: Vision-->
-        <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-labelledby="portfolioModal7Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                    </button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal7Label">Autonomous Robot Dog</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-dog"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                  
-                                    <!-- Portfolio Modal - Video--> <!--
+    <!-- Portfolio Modal 6: Autonomous Robot Dog: Vision-->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog"
+        aria-labelledby="portfolioModal6Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0"
+                                    id="portfolioModal6Label">Autonomous Robot Dog</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-dog"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+
+                                <!-- Portfolio Modal - Video-->
+                                <!--
                                     <iframe width="640" height="360" src="https://www.youtube.com/embed/uYv-dsK2C74" title="ME30 - Merry Go Golf by Rose Kitz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Electromechanical Game Video"></iframe> -->
-                                    <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="" />-->
-                                    <!-- Portfolio Modal - Text-->
-                                  <h3>Camera Vision with OpenMV and Nicla Vision</h3>
-                                </div>
+                                <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="" />-->
+                                <!-- Portfolio Modal - Text-->
+                                <h3>Camera Vision with OpenMV and Nicla Vision</h3>
                             </div>
+                        </div>
 
-                                <div class="row justify-content-center">
-                                  <a class="btn btn-xl btn-outline-dark" href="https://rosekitz.notion.site/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14" target="_blank">
-                                      <i class="fas fa-external-link-alt mr-2"></i>
-                                      Checkout my full report on Notion!
-                                  </a>
-                                </div>
+                        <iframe width="640" height="360" src="https://www.youtube.com/embed/MWfQW3u1T5w"
+                            title="Woody dances at the sight of a tennis ball!" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen alt="Woody dances at the sight of a tennis ball!"></iframe>
 
-                                <!-- commenting out notion html embed for now b/c annoying to chnage youtube embed links
+                        <ul>
+                            <li>In 4 weeks, with no prior image processing knowledge, <strong>taught our dog to
+                                    recognize tennis balls in varied lighting conditions</strong> and move reliably in
+                                response to April tags and close objects</li>
+                            <li>Integrated vision system with <strong>dog's ROS2 brain over serial</strong> (designed by
+                                groupmate Jacob Choi) to ensure a sound mind-body connection, while consulting with
+                                fabrication-focused teammates on camera mounting & rotation system</li>
+                            <li>Modularized vision code with libraries and functions to easily add/change April tags
+                                reactions by simply adding to a list -- <strong>no-hassle testing!</strong></li>
+                            <li>Challenged myself to be <strong>responsible for a part of the project (vision) I had no
+                                    experience with</strong> -- and learned a lot...</li>
+                        </ul>
+
+                        <div class="row justify-content-center">
+                            <a class="btn btn-xl btn-outline-dark"
+                                href="https://rosekitz.notion.site/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14"
+                                target="_blank">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Checkout my full report on Notion!
+                            </a>
+                        </div>
+
+                        <!-- commenting out notion html embed for now b/c annoying to chnage youtube embed links
                                 <div class="row justify-content-center embed-responsive embed-responsive-16by9">
                                       <iframe class="embed-responsive-item" src="https://brawny-egret-76f.notion.site/Final-Project-Giving-a-Robotic-Dog-Vision-with-OpenMV-and-Nicla-Vision-8a27b266376541569c40216b98b4eb14?pvs=4" title="Electronic Musical Instrument"></iframe>
                                 </div>
                           -->
-                                  <!--
+                        <!--
                                     <p class="mb-5">Inspired by a childhood of smacking purple golf balls into mini barns, windmills, and, most often, bushes, I designed & built an electromechanical game that packs the thrill of mini golf into a desktop-size arcade game. I programmed an Adafruit Feather to control the game and take inputs from the dashboard potentiometers and buttons, then changes the behavior of the DC (under platform) and stepper (attached to golf 'club') motors. I designed both the electronic & mechanical components of the project, and laser cut, soldered, and assembled everything together.</p> -->
-                                    <!-- Portfolio Modal - Images-->
-                                  <!--
+                        <!-- Portfolio Modal - Images-->
+                        <!--
                                     <div class="row"> -->
-                                      <!--<div class="column"> need to figure out how to have diff. tables w/ diff. column widths b/c I declared .column to have width: 50% in the .css file, but for here I need 33%
+                        <!--<div class="column"> need to figure out how to have diff. tables w/ diff. column widths b/c I declared .column to have width: 50% in the .css file, but for here I need 33%
                                         <img class="rounded mb-5" src="assets/img/portfolio/spike_prime_walking_robot/silly-walks-leftside.jpg" alt="Image of left side of Silly Walks robot (featuring leg gear chain)" style="width:100%">
-                                      </div>--><!--
+                                      </div>-->
+                        <!--
                                       <div class="column">
                                         <img class="rounded mb-5" src="assets/img/portfolio/electromech_game/electromech-game-onshape-assembly.png" alt="Image of OnShape CAD model of fabricated parts." style="width:100%">
                                       </div>
                                       <div class="column">
                                         <img class="rounded mb-5" src="assets/img/portfolio/electromech_game/electromech-game-frontside.jpg" alt="Image of front-side of assembled electromechanical game." style="width:100%">
                                       </div> -->
-                                  <br><br>
-                                  <div class="row justify-content-center">
-                                    <button class="btn btn-primary" data-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                  </div>
+                        <br><br>
+                        <div class="row justify-content-center">
+                            <button class="btn btn-primary" data-dismiss="modal">
+                                <i class="fas fa-times fa-fw"></i>
+                                Close Window
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Portfolio Modal 6: Raspberry Pi Driving Robot-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                    </button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal6Label">Raspberry Pi Driving Robot</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-car"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Video-->
-                                    <!--<iframe width="640" height="360" src="https://www.youtube.com/embed/uYv-dsK2C74" title="ME30 - Merry Go Golf by Rose Kitz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Electromechanical Game Video">
+    <!-- Portfolio Modal 5: Raspberry Pi Driving Robot-->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog"
+        aria-labelledby="portfolioModal5Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0"
+                                    id="portfolioModal5Label">Raspberry Pi Driving Robot</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-car"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Video-->
+                                <!--<iframe width="640" height="360" src="https://www.youtube.com/embed/uYv-dsK2C74" title="ME30 - Merry Go Golf by Rose Kitz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Electromechanical Game Video">
                                     </iframe> -->
-                                    <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="" />-->
-                                    <!-- Portfolio Modal - Text-->
-                                  <h3>Navigates a Maze Blind with Buttons!</h3>
-                                    <p class="mb-5">Working with two groupmates in my Electromechanical Systems & Robotics class, I designed both the physical and electrical components of this driving robot in two stages. In the first stage (picture to come), I designed the chassis of the car in Onshape (and eventually laser cut it) to strategically position the various components of the robot (wheels, motors, Raspberry Pi, wire management) for ideal weight distribution to allow the robot to drive smoothly through a narrow hallway. I also worked with my partners to utilize Flask to establish a consistent wireless connection between the brain of the robot (Raspberry Pi) and our HTML webpage that had basic movement buttons to signal the robot to move or turn in a certain direction.</p>
+                                <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="" />-->
+                                <!-- Portfolio Modal - Text-->
+                                <h3>Navigates a Maze Blind with Buttons!</h3>
+                                <p class="mb-5">Working with two groupmates in my Electromechanical Systems & Robotics
+                                    class, I designed both the physical and electrical components of this driving robot
+                                    in two stages. In the first stage (picture to come), I designed the chassis of the
+                                    car in Onshape (and eventually laser cut it) to strategically position the various
+                                    components of the robot (wheels, motors, Raspberry Pi, wire management) for ideal
+                                    weight distribution to allow the robot to drive smoothly through a narrow hallway. I
+                                    also worked with my partners to utilize Flask to establish a consistent wireless
+                                    connection between the brain of the robot (Raspberry Pi) and our HTML webpage that
+                                    had basic movement buttons to signal the robot to move or turn in a certain
+                                    direction.</p>
 
-                                    <div class="row">
-                                      <div class="column">
-                                        <img class="rounded mb-5" src="assets/img/portfolio/raspberry_pi_driving_robot/driving-robot-guts.jpg" alt="Image of guts of stage 1 driving robot" style="width:100%">
-                                      </div>
-                                      <div class="column">
-                                        <img class="rounded mb-5" src="assets/img/portfolio/raspberry_pi_driving_robot/driving-robot-side.jpg" alt="Image of side of stage 1 driving robot" style="width:100%">
-                                      </div>
-                                      <div class="column">
-                                        <img class="rounded mb-5" src="assets/img/portfolio/raspberry_pi_driving_robot/driving-robot-dimsketches.jpg" alt="Image of dimensional sketches of stage 1 driving robot" style="width:100%">
-                                      </div>
+                                <div class="row">
+                                    <div class="column">
+                                        <img class="rounded mb-5"
+                                            src="assets/img/portfolio/raspberry_pi_driving_robot/driving-robot-guts.jpg"
+                                            alt="Image of guts of stage 1 driving robot" style="width:100%">
                                     </div>
+                                    <div class="column">
+                                        <img class="rounded mb-5"
+                                            src="assets/img/portfolio/raspberry_pi_driving_robot/driving-robot-side.jpg"
+                                            alt="Image of side of stage 1 driving robot" style="width:100%">
+                                    </div>
+                                    <div class="column">
+                                        <img class="rounded mb-5"
+                                            src="assets/img/portfolio/raspberry_pi_driving_robot/driving-robot-dimsketches.jpg"
+                                            alt="Image of dimensional sketches of stage 1 driving robot"
+                                            style="width:100%">
+                                    </div>
+                                </div>
 
 
-                                    <p class="mb-5">For the second stage of the project, we incorporated four buttons onto our robot so it could 'sense' hitting walls in a hidden maze, redesigned the chassis, added PWM motor control to enhance turning and calibrate the wheels, and modified the buttons on our HTML site for easier real-time remote control of the robot. To start, I worked with my teammates to test our minimum viable prototype of a button press sending feedback from the Raspberry Pi back to our webpage, which we eventually achieved by setting up the Pi as a server with Flask and sending data in response to HTTP requests. Then, from my teammates' preliminary Onshape sketches of a new chassis, I designed the living hinge walls to support multiple platforms and enable a circular robot for smooth turning in place. I iterated through many versions of living hinges, spending hours by the laser cutter, to eventually find a pattern that balanced flexibility with strength for the talls walls I designed to span the entire height of the structure. I also took and adjusted various measurments to improve the snug fit of laser cut pieces together along with the components within the structure. In between turns on the laser cutter, I worked on implementing and testing the PWM motor control (transitioning from simple off/full speed in stage 1) on a singular DC motor. Then, once we assembled the final robot structure, I tested the accuracy of the PWM driving, modifying the program on the Pi to calibrate the wheels to enable different speeds of straightforward/backward driving and gradual turning.</p>
+                                <p class="mb-5">For the second stage of the project, we incorporated four buttons onto
+                                    our robot so it could 'sense' hitting walls in a hidden maze, redesigned the
+                                    chassis, added PWM motor control to enhance turning and calibrate the wheels, and
+                                    modified the buttons on our HTML site for easier real-time remote control of the
+                                    robot. To start, I worked with my teammates to test our minimum viable prototype of
+                                    a button press sending feedback from the Raspberry Pi back to our webpage, which we
+                                    eventually achieved by setting up the Pi as a server with Flask and sending data in
+                                    response to HTTP requests. Then, from my teammates' preliminary Onshape sketches of
+                                    a new chassis, I designed the living hinge walls to support multiple platforms and
+                                    enable a circular robot for smooth turning in place. I iterated through many
+                                    versions of living hinges, spending hours by the laser cutter, to eventually find a
+                                    pattern that balanced flexibility with strength for the talls walls I designed to
+                                    span the entire height of the structure. I also took and adjusted various
+                                    measurments to improve the snug fit of laser cut pieces together along with the
+                                    components within the structure. In between turns on the laser cutter, I worked on
+                                    implementing and testing the PWM motor control (transitioning from simple off/full
+                                    speed in stage 1) on a singular DC motor. Then, once we assembled the final robot
+                                    structure, I tested the accuracy of the PWM driving, modifying the program on the Pi
+                                    to calibrate the wheels to enable different speeds of straightforward/backward
+                                    driving and gradual turning.</p>
 
-                                    <p class="mb-5">From this project, I learned how to better manage a team project to delegate tasks to work on as both a group and as individuals. Additionally, I improved my physical fabrication skills (experimenting with living hinges, finding 'quick & dirty' ways of building certain parts like a bolt as a caster wheel, designing a physical structure to balance and secure electronic components), particularly in the context of a multidisciplinary project focused more on electromechanical components than simply a physical build. I gained deeper experience connecting robots to the internet, progressing from SPIKE Prime my first year of college to a Raspberry Pi now, and finding clear ways of both controlling the robot and representing real-time feedback on an HTML webpage. In general, I thoroughly enjoyed the process of combining my Python programming skills, interest in physical fabrication, and developing further experience with electronics to work with groupmates on a complex system with a 'simple' purpose.<br><br></p>
+                                <p class="mb-5">From this project, I learned how to better manage a team project to
+                                    delegate tasks to work on as both a group and as individuals. Additionally, I
+                                    improved my physical fabrication skills (experimenting with living hinges, finding
+                                    'quick & dirty' ways of building certain parts like a bolt as a caster wheel,
+                                    designing a physical structure to balance and secure electronic components),
+                                    particularly in the context of a multidisciplinary project focused more on
+                                    electromechanical components than simply a physical build. I gained deeper
+                                    experience connecting robots to the internet, progressing from SPIKE Prime my first
+                                    year of college to a Raspberry Pi now, and finding clear ways of both controlling
+                                    the robot and representing real-time feedback on an HTML webpage. In general, I
+                                    thoroughly enjoyed the process of combining my Python programming skills, interest
+                                    in physical fabrication, and developing further experience with electronics to work
+                                    with groupmates on a complex system with a 'simple' purpose.<br><br></p>
 
-                                    <iframe width="640" height="360" src="https://www.youtube.com/embed/ct0Rmv-dkjM" title="ME30 - Raspberry Pi Maze-Driving Robot (Group Project)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="RasPi Driving Robot"></iframe>                                    
-                                    <!-- Portfolio Modal - Images-->
-                                    <div class="row">
-                                      <!--<div class="column"> need to figure out how to have diff. tables w/ diff. column widths b/c I declared .column to have width: 50% in the .css file, but for here I need 33%
+                                <iframe width="640" height="360" src="https://www.youtube.com/embed/ct0Rmv-dkjM"
+                                    title="ME30 - Raspberry Pi Maze-Driving Robot (Group Project)" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen alt="RasPi Driving Robot"></iframe>
+                                <!-- Portfolio Modal - Images-->
+                                <div class="row">
+                                    <!--<div class="column"> need to figure out how to have diff. tables w/ diff. column widths b/c I declared .column to have width: 50% in the .css file, but for here I need 33%
                                         <img class="rounded mb-5" src="assets/img/portfolio/spike_prime_walking_robot/silly-walks-leftside.jpg" alt="Image of left side of Silly Walks robot (featuring leg gear chain)" style="width:100%">
                                       </div>-->
-                                      <div class="column">
-                                        <img class="rounded mb-5" src="assets/img/portfolio/raspberry_pi_driving_robot/driving-robot-front.jpg" alt="Image of front of driving robot" style="width:100%">
-                                      </div>
-                                      <div class="column">
-                                        <img class="rounded mb-5" src="assets/img/portfolio/raspberry_pi_driving_robot/driving-robot-bottom.jpg" alt="Image of bottom of driving robot" style="width:100%">
-                                      </div>
-                                      <div class="column">
-                                        <img class="rounded mb-5" src="assets/img/portfolio/raspberry_pi_driving_robot/driving-robot-back.jpg" alt="Image of back of driving robot" style="width:100%">
-                                      </div>
+                                    <div class="column">
+                                        <img class="rounded mb-5"
+                                            src="assets/img/portfolio/raspberry_pi_driving_robot/driving-robot-front.jpg"
+                                            alt="Image of front of driving robot" style="width:100%">
                                     </div>
-                                    <button class="btn btn-primary" data-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
+                                    <div class="column">
+                                        <img class="rounded mb-5"
+                                            src="assets/img/portfolio/raspberry_pi_driving_robot/driving-robot-bottom.jpg"
+                                            alt="Image of bottom of driving robot" style="width:100%">
+                                    </div>
+                                    <div class="column">
+                                        <img class="rounded mb-5"
+                                            src="assets/img/portfolio/raspberry_pi_driving_robot/driving-robot-back.jpg"
+                                            alt="Image of back of driving robot" style="width:100%">
+                                    </div>
                                 </div>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Portfolio Modal 5: Electromechanical Golf Game-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="portfolioModal5Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                    </button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal5Label">Electromechanical Game</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-golf-ball"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Video-->
-                                    <iframe width="640" height="360" src="https://www.youtube.com/embed/uYv-dsK2C74" title="ME30 - Merry Go Golf by Rose Kitz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Electromechanical Game Video"></iframe>
-                                    <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="" />-->
-                                    <!-- Portfolio Modal - Text-->
-                                  <h3>Merry-Go-Golf</h3>
-                                    <p class="mb-5">Inspired by a childhood of smacking purple golf balls into mini barns, windmills, and, most often, bushes, I designed & built an electromechanical game that packs the thrill of mini golf into a desktop-size arcade game. I programmed an Adafruit Feather to control the game and take inputs from the dashboard potentiometers and buttons, then changes the behavior of the DC (under platform) and stepper (attached to golf 'club') motors. I designed both the electronic & mechanical components of the project, and laser cut, soldered, and assembled everything together.</p>
-                                    <!-- Portfolio Modal - Images-->
-                                    <div class="row">
-                                      <!--<div class="column"> need to figure out how to have diff. tables w/ diff. column widths b/c I declared .column to have width: 50% in the .css file, but for here I need 33%
+    <!-- Portfolio Modal 4: Electromechanical Golf Game-->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog"
+        aria-labelledby="portfolioModal4Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0"
+                                    id="portfolioModal4Label">Electromechanical Game</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-golf-ball"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Video-->
+                                <iframe width="640" height="360" src="https://www.youtube.com/embed/uYv-dsK2C74"
+                                    title="ME30 - Merry Go Golf by Rose Kitz" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen alt="Electromechanical Game Video"></iframe>
+                                <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="" />-->
+                                <!-- Portfolio Modal - Text-->
+                                <h3>Merry-Go-Golf</h3>
+                                <p class="mb-5">Inspired by a childhood of smacking purple golf balls into mini barns,
+                                    windmills, and, most often, bushes, I designed & built an electromechanical game
+                                    that packs the thrill of mini golf into a desktop-size arcade game. I programmed an
+                                    Adafruit Feather to control the game and take inputs from the dashboard
+                                    potentiometers and buttons, then changes the behavior of the DC (under platform) and
+                                    stepper (attached to golf 'club') motors. I designed both the electronic &
+                                    mechanical components of the project, and laser cut, soldered, and assembled
+                                    everything together.</p>
+                                <!-- Portfolio Modal - Images-->
+                                <div class="row">
+                                    <!--<div class="column"> need to figure out how to have diff. tables w/ diff. column widths b/c I declared .column to have width: 50% in the .css file, but for here I need 33%
                                         <img class="rounded mb-5" src="assets/img/portfolio/spike_prime_walking_robot/silly-walks-leftside.jpg" alt="Image of left side of Silly Walks robot (featuring leg gear chain)" style="width:100%">
                                       </div>-->
-                                      <div class="column">
-                                        <img class="rounded mb-5" src="assets/img/portfolio/electromech_game/electromech-game-onshape-assembly.png" alt="Image of OnShape CAD model of fabricated parts." style="width:100%">
-                                      </div>
-                                      <div class="column">
-                                        <img class="rounded mb-5" src="assets/img/portfolio/electromech_game/electromech-game-frontside.jpg" alt="Image of front-side of assembled electromechanical game." style="width:100%">
-                                      </div>
+                                    <div class="column">
+                                        <img class="rounded mb-5"
+                                            src="assets/img/portfolio/electromech_game/electromech-game-onshape-assembly.png"
+                                            alt="Image of OnShape CAD model of fabricated parts." style="width:100%">
                                     </div>
-                                    <button class="btn btn-primary" data-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
+                                    <div class="column">
+                                        <img class="rounded mb-5"
+                                            src="assets/img/portfolio/electromech_game/electromech-game-frontside.jpg"
+                                            alt="Image of front-side of assembled electromechanical game."
+                                            style="width:100%">
+                                    </div>
                                 </div>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Portfolio Modal 4: PCBs (H-Bridge, Power Supply)-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                    </button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                
-                                    <!-- Portfolio Modal - Title-->
-                                    
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal4Label">PCBs</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-bolt"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                  
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="" alt="[to add: image of soldered physical PCB]" />
-                                    <!-- Portfolio Modal - Text-->
-                                    <div>
-                                        <img class="rounded mb-5" src="assets/img/portfolio/pcbs/kicad-layout-hbridge.png" alt="Image of KiCad layout of H-Bridge PCB" style="width:75%">
-                                      </div>
-                                    <h3>H-Bridge</h3>
-                                    <p class="mb-5">I designed this h-bridge PCB on KiCad to control the direction of a motor, including a 12V barrel power jack and a screw terminal to provide flexibility for the power source. I also incorporated two indicator LEDs for motor power. Additionally, I added detailed labels to several components and arranged each footprint neatly to optimize the soldering process. After finishing the KiCad design, I ordered my PCB to be fabricated, then soldered it and incorporated it into my class projects!</p>
-                                    <h3>Power Supply</h3>
-                                    <p class="mb-5">This power supply was the first PCB I ever designed! Through this project I learned the steps to go from a circuit sketch all the way to a physical PCB in my hands to incorporate into my future electronics projects. I thoroughly enjoyed soldering components to my own PCB. The pictures demonstrate my progression from sketch --> breadboard prototype --> KiCad schematic --> KiCad rendering --> manufactured & self-soldered PCB. The PCB receives power from a 12V wall-adapter barrel jacks and converts the power to 3.3V and 5V, with pins to supply this power to the rails of a breadboard.</p>
-                                     <!-- Portfolio Modal - Images-->
-                                    <div class="row">
-                                      <!--<div class="column"> need to figure out how to have diff. tables w/ diff. column widths b/c I declared .column to have width: 50% in the .css file, but for here I need 33%
+    <!-- Portfolio Modal 3: PCBs (H-Bridge, Power Supply)-->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog"
+        aria-labelledby="portfolioModal3Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+
+                                <!-- Portfolio Modal - Title-->
+
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0"
+                                    id="portfolioModal3Label">PCBs</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-bolt"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src=""
+                                    alt="[to add: image of soldered physical PCB]" />
+                                <!-- Portfolio Modal - Text-->
+                                <div>
+                                    <img class="rounded mb-5" src="assets/img/portfolio/pcbs/kicad-layout-hbridge.png"
+                                        alt="Image of KiCad layout of H-Bridge PCB" style="width:75%">
+                                </div>
+                                <h3>H-Bridge</h3>
+                                <p class="mb-5">I designed this h-bridge PCB on KiCad to control the direction of a
+                                    motor, including a 12V barrel power jack and a screw terminal to provide flexibility
+                                    for the power source. I also incorporated two indicator LEDs for motor power.
+                                    Additionally, I added detailed labels to several components and arranged each
+                                    footprint neatly to optimize the soldering process. After finishing the KiCad
+                                    design, I ordered my PCB to be fabricated, then soldered it and incorporated it into
+                                    my class projects!</p>
+                                <h3>Power Supply</h3>
+                                <p class="mb-5">This power supply was the first PCB I ever designed! Through this
+                                    project I learned the steps to go from a circuit sketch all the way to a physical
+                                    PCB in my hands to incorporate into my future electronics projects. I thoroughly
+                                    enjoyed soldering components to my own PCB. The pictures demonstrate my progression
+                                    from sketch --> breadboard prototype --> KiCad schematic --> KiCad rendering -->
+                                    manufactured & self-soldered PCB. The PCB receives power from a 12V wall-adapter
+                                    barrel jacks and converts the power to 3.3V and 5V, with pins to supply this power
+                                    to the rails of a breadboard.</p>
+                                <!-- Portfolio Modal - Images-->
+                                <div class="row">
+                                    <!--<div class="column"> need to figure out how to have diff. tables w/ diff. column widths b/c I declared .column to have width: 50% in the .css file, but for here I need 33%
                                         <img class="rounded mb-5" src="assets/img/portfolio/spike_prime_walking_robot/silly-walks-leftside.jpg" alt="Image of left side of Silly Walks robot (featuring leg gear chain)" style="width:100%">
                                       </div>-->
-                                      <div class="column">
-                                        <img class="rounded mb-5" src="assets/img/portfolio/pcbs/breadboard-proto-power-supply.jpg" alt="Image of breadboard prototype of power supply PCB" style="width:100%">
-                                      </div>
-                                      <div class="column">
-                                        <img class="rounded mb-5" src="assets/img/portfolio/pcbs/kicad-schematic-power-supply.png" alt="Image of KiCad schematic of power supply PCB" style="width:100%">
-                                      </div>
+                                    <div class="column">
+                                        <img class="rounded mb-5"
+                                            src="assets/img/portfolio/pcbs/breadboard-proto-power-supply.jpg"
+                                            alt="Image of breadboard prototype of power supply PCB" style="width:100%">
                                     </div>
-                                    <button class="btn btn-primary" data-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
+                                    <div class="column">
+                                        <img class="rounded mb-5"
+                                            src="assets/img/portfolio/pcbs/kicad-schematic-power-supply.png"
+                                            alt="Image of KiCad schematic of power supply PCB" style="width:100%">
+                                    </div>
                                 </div>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Portfolio Modal 3: SPIKE Prime Xylophone Player-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                    </button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal3Label">The Xylophone Player</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-music"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Video-->
-                                        <iframe width="640" height="360" src="https://www.youtube.com/embed/s3rvMKtyd78" title="The Xylophone Player by Rose Kitz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="The Xylophone Player Video">
-                                        </iframe>
-                                    <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/xylophone_player/xylophone-player-card.png" alt="" />-->
-                                    <!-- Portfolio Modal - Text -->
-                                    <p class="mb-5">The Xylophone Player consists of parts of a LEGO Education SPIKE Prime kit, a modified xylophone, and OnShape-designed laser cut acrylic pieces (for the marble holding and dropping mechanism). With the challenge to create a middle-schooled targeted "Playful Creation" playable over Zoom, I designed and built this apparatus around the xylophone to "play" the instrument by dropping marbles on the keys. The children could access my web interface and either click a button to play a pre-loaded song, or create their own song by inputting letters. Visit my web interface here: http://tiny.cc/music-play.</p>
-                                    <!-- Portfolio Modal - Imagess -->
-                                    <div class="row">
-                                      <div class="column">
-                                        <img class="rounded mb-5" src="assets/img/portfolio/xylophone_player/xylophone-player-interface-collage.png" alt="Image of local and remote interfaces for The Xylophone Player" style="width:100%">
-                                      </div>
-                                      <div class="column">
-                                        <img class="rounded mb-5" src="assets/img/portfolio/xylophone_player/xylophone-player-lasercut-marbles-collage.png" alt="Collage of laser-cut acrylic pieces and marble dispenser" style="width:100%">
-                                      </div>
-                                    </div>
-                                    <button class="btn btn-primary" data-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
+    <!-- Portfolio Modal 2: SPIKE Prime Xylophone Player-->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog"
+        aria-labelledby="portfolioModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0"
+                                    id="portfolioModal2Label">The Xylophone Player</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-music"></i></div>
+                                    <div class="divider-custom-line"></div>
                                 </div>
+                                <!-- Portfolio Modal - Video-->
+                                <iframe width="640" height="360" src="https://www.youtube.com/embed/s3rvMKtyd78"
+                                    title="The Xylophone Player by Rose Kitz" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen alt="The Xylophone Player Video">
+                                </iframe>
+                                <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/xylophone_player/xylophone-player-card.png" alt="" />-->
+                                <!-- Portfolio Modal - Text -->
+                                <p class="mb-5">The Xylophone Player consists of parts of a LEGO Education SPIKE Prime
+                                    kit, a modified xylophone, and OnShape-designed laser cut acrylic pieces (for the
+                                    marble holding and dropping mechanism). With the challenge to create a
+                                    middle-schooled targeted "Playful Creation" playable over Zoom, I designed and built
+                                    this apparatus around the xylophone to "play" the instrument by dropping marbles on
+                                    the keys. The children could access my web interface and either click a button to
+                                    play a pre-loaded song, or create their own song by inputting letters. Visit my web
+                                    interface here: http://tiny.cc/music-play.</p>
+                                <!-- Portfolio Modal - Imagess -->
+                                <div class="row">
+                                    <div class="column">
+                                        <img class="rounded mb-5"
+                                            src="assets/img/portfolio/xylophone_player/xylophone-player-interface-collage.png"
+                                            alt="Image of local and remote interfaces for The Xylophone Player"
+                                            style="width:100%">
+                                    </div>
+                                    <div class="column">
+                                        <img class="rounded mb-5"
+                                            src="assets/img/portfolio/xylophone_player/xylophone-player-lasercut-marbles-collage.png"
+                                            alt="Collage of laser-cut acrylic pieces and marble dispenser"
+                                            style="width:100%">
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-      
-        <!-- Portfolio Modal 2: SPIKE Prime Walking Robot-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                    </button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Label">Silly Walks</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-cog"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Video-->
-                                    <iframe width="640" height="360" src="https://www.youtube.com/embed/r1GOxRHf34Y" title="Silly Walks by Rose Kitz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Silly Walks Video">
-                                    </iframe>
-                                    <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="" />-->
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">This Silly Walks project was a challenge to make a robot out of the LEGO Education SPIKE Prime kit only that could move forward, without wheels, and with only one motor. My robot features a rotating rubber band and gear chain system which connects the one motor with both legs of the robot. I also added rubber pieces from the kit to improve the friction between the otherwise slipperly plastic robot and the ground.</p>
-                                    <!-- Portfolio Modal - Images-->
-                                    <div class="row">
-                                      <!--<div class="column"> need to figure out how to have diff. tables w/ diff. column widths b/c I declared .column to have width: 50% in the .css file, but for here I need 33%
+    </div>
+
+    <!-- Portfolio Modal 1: SPIKE Prime Walking Robot-->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog"
+        aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0"
+                                    id="portfolioModal1Label">Silly Walks</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-cog"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Video-->
+                                <iframe width="640" height="360" src="https://www.youtube.com/embed/r1GOxRHf34Y"
+                                    title="Silly Walks by Rose Kitz" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen alt="Silly Walks Video">
+                                </iframe>
+                                <!--<img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="" />-->
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5">This Silly Walks project was a challenge to make a robot out of the LEGO
+                                    Education SPIKE Prime kit only that could move forward, without wheels, and with
+                                    only one motor. My robot features a rotating rubber band and gear chain system which
+                                    connects the one motor with both legs of the robot. I also added rubber pieces from
+                                    the kit to improve the friction between the otherwise slipperly plastic robot and
+                                    the ground.</p>
+                                <!-- Portfolio Modal - Images-->
+                                <div class="row">
+                                    <!--<div class="column"> need to figure out how to have diff. tables w/ diff. column widths b/c I declared .column to have width: 50% in the .css file, but for here I need 33%
                                         <img class="rounded mb-5" src="assets/img/portfolio/spike_prime_walking_robot/silly-walks-leftside.jpg" alt="Image of left side of Silly Walks robot (featuring leg gear chain)" style="width:100%">
                                       </div>-->
-                                      <div class="column">
-                                        <img class="rounded mb-5" src="assets/img/portfolio/spike_prime_walking_robot/silly-walks-front.jpg" alt="Image of front side of Silly Walks robot" style="width:100%">
-                                      </div>
-                                      <div class="column">
-                                        <img class="rounded mb-5" src="assets/img/portfolio/spike_prime_walking_robot/silly-walks-top.jpg" alt="Image of top of Silly Walks robot (featuring top gear chain)" style="width:100%">
-                                      </div>
+                                    <div class="column">
+                                        <img class="rounded mb-5"
+                                            src="assets/img/portfolio/spike_prime_walking_robot/silly-walks-front.jpg"
+                                            alt="Image of front side of Silly Walks robot" style="width:100%">
                                     </div>
-                                    <button class="btn btn-primary" data-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
+                                    <div class="column">
+                                        <img class="rounded mb-5"
+                                            src="assets/img/portfolio/spike_prime_walking_robot/silly-walks-top.jpg"
+                                            alt="Image of top of Silly Walks robot (featuring top gear chain)"
+                                            style="width:100%">
+                                    </div>
                                 </div>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-      
-        <!-- Portfolio Modal 1: Station Wagon Graphic Design-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                    </button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Retro Station Wagon</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-bezier-curve"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/station_wagon/station-wagon-posterversion.png" alt="Poster Version of Retro Station Wagon Design" />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">I designed this vector art shortly after my grandfather passed away in June 2020 for a theoretical "road trip" my family wanted to take to the various places that remind us of our grandfather. There are various details in the design, such as a surfboard under the car, that were inspired by my mom and five aunts and uncles' childhood stories taking spontaneous road trips led by my grandfather. I am currently working on a modified model to laser cut for my family.</p>
-                                    <button class="btn btn-primary" data-dismiss="modal">
-                                        <i class="fas fa-times fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
 
-      
-        <!-- Bootstrap core JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Contact form JS-->
-        <script src="assets/mail/jqBootstrapValidation.js"></script>
-        <script src="assets/mail/contact_me.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
-  
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Contact form JS-->
+    <script src="assets/mail/jqBootstrapValidation.js"></script>
+    <script src="assets/mail/contact_me.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
 </html>
